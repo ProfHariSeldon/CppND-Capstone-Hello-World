@@ -40,6 +40,7 @@ Neither #include works both say "cannot open source file" in Visual Studio Code
 ## TensorFlow install errors
 
 Here is the full install text output:
+```
 tlroot@tlroot-VirtualBox:~$ sudo apt install python-pip
 [sudo] password for tlroot: 
 Reading package lists... Done
@@ -359,3 +360,4 @@ Installing collected packages: six, numpy, keras-preprocessing, opt-einsum, gast
   Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
 Successfully installed absl-py-0.9.0 astor-0.8.1 backports.weakref-1.0.post1 cachetools-3.1.1 certifi-2020.6.20 chardet-3.0.4 funcsigs-1.0.2 functools32-3.2.3.post2 futures-3.3.0 gast-0.2.2 google-auth-1.18.0 google-auth-oauthlib-0.4.1 google-pasta-0.2.0 grpcio-1.30.0 h5py-2.10.0 keras-applications-1.0.8 keras-preprocessing-1.1.2 markdown-3.1.1 mock-3.0.5 numpy-1.16.6 oauthlib-3.1.0 opt-einsum-2.3.2 protobuf-3.12.2 pyasn1-0.4.8 pyasn1-modules-0.2.8 requests-2.24.0 requests-oauthlib-1.3.0 rsa-4.0 scipy-1.2.2 six-1.15.0 tensorboard-2.1.0 tensorflow-2.1.0 tensorflow-estimator-2.1.0 termcolor-1.1.0 urllib3-1.25.9 werkzeug-1.0.1 wrapt-1.12.1
 tlroot@tlroot-VirtualBox:~$
+```
