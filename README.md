@@ -28,12 +28,16 @@ In this project, you can build your own C++ application starting with this repo,
 ## #include TensorFlow fails
 
 The #includes recommended by the Udacity C++ course using this link: https://www.tensorflow.org/guide/create_op
+```
 #include "tensorflow/core/framework/op.h"
 #include "tensorflow/core/framework/shape_inference.h"
+```
 
 The actual location of those two files in my Ubuntu 18.04.4 LTS Virtual Machine
+```
 #include "./.local/lib/python2.7/site-packages/tensorflow_core/include/tensorflow/core/framework/op.h"
 #include "./.local/lib/python2.7/site-packages/tensorflow_core/include/tensorflow/core/framework/shape_inference.h"
+```
 
 Neither #include works both say "cannot open source file" in Visual Studio Code
 
