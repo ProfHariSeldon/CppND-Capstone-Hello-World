@@ -1,12 +1,17 @@
 #include <iostream>
 #include"TrainSVM.h"
 #include"PredictImage.hpp"
+// PATH in settings.json is /home/tlroot/installation/OpenCV-master/include/opencv4/
 #include<opencv2/core/core.hpp>
 #include<opencv2/imgproc/imgproc.hpp>
 #include<opencv2/ml/ml.hpp>
 #include<opencv2/opencv.hpp>
-#include<opencv2/nonfree/features2d.hpp>
+// opencv2/nonfree/features2d.hpp is now called opencv2/xfeatures2d.hpp
+// #include<opencv2/nonfree/features2d.hpp>
 #include<opencv2/features2d/features2d.hpp>
+
+// https://stackoverflow.com/questions/27418668/nonfree-module-is-missing-in-opencv-3-0
+#include<opencv2/xfeatures2d.hpp>
 
 using namespace std;
 using namespace cv;
