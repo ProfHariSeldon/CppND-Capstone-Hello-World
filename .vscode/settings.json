@@ -1,5 +1,6 @@
 {
-    "files.associations": {
-        "iostream": "cpp"
-    }
+    "[cpp]": {
+        "editor.defaultFormatter": "xaver.clang-format"
+    },
+    "C_Cpp.default.includePath": ["/home/tlroot/installation/OpenCV-master/include/opencv4/"]
 }
