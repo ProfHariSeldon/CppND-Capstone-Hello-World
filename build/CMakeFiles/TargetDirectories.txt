@@ -1,3 +1,0 @@
-/home/tlroot/Documents/C++/Capstone/CppND-Capstone-Hello-World/build/CMakeFiles/rebuild_cache.dir
-/home/tlroot/Documents/C++/Capstone/CppND-Capstone-Hello-World/build/CMakeFiles/edit_cache.dir
-/home/tlroot/Documents/C++/Capstone/CppND-Capstone-Hello-World/build/CMakeFiles/classifier.dir
