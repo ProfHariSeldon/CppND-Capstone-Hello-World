@@ -8,16 +8,25 @@
     int main(int argc, char** argv)
     {
         vector<String> fn;
-        glob("c:/data/cat-dog/*.jpg", fn, true);
+        // ORIGINAL CODE:
+        // glob("c:/data/cat-dog/*.jpg", fn, true);
+        // MY CODE:
+        glob("/home/tlroot/Documents/C++/Capstone/OpenCVCNN/cat-dog/*.jpg", fn, true);
         // glob() will conveniently sort names lexically, so the cats come first!
         // so we have 700 cats, 699 dogs, and split it into:
         // 100 test cats
         // 600 train cats
         // 100 test dogs
         // 599 train dogs
-    
-        std::string modelTxt = "c:/data/mdl/squeezenet/deploy.prototxt";
-        std::string modelBin = "c:/data/mdl/squeezenet/squeezenet_v1.1.caffemodel";
+
+        // ORIGINAL CODE:
+        // std::string modelTxt = "c:/data/mdl/squeezenet/deploy.prototxt";
+        // MY CODE:
+        std::string modelTxt = "/home/tlroot/Documents/C++/Capstone/OpenCVCNN/squeezenet_v1.1.prototxt";
+        // ORIGINAL CODE:
+        // std::string modelBin = "c:/data/mdl/squeezenet/squeezenet_v1.1.caffemodel";
+        // MY CODE:
+        std::string modelBin = "/home/tlroot/Documents/C++/Capstone/OpenCVCNN/squeezenet_v1.1.caffemodel";
         dnn::Net net = dnn::readNetFromCaffe(modelTxt, modelBin);
         cv::Size inputImgSize = cv::Size(227, 227); // model was trained with this size
     
