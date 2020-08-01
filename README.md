@@ -44,6 +44,9 @@ In this project, I built my own C++ application starting with this repo, followi
   * Linux: [Install OpenCV 4.0 on Ubuntu 18.04](https://www.learnopencv.com/install-opencv-4-on-ubuntu-18-04/) - [Code](https://github.com/spmallick/learnopencv/blob/master/InstallScripts/installOpenCV-4-on-Ubuntu-18-04.sh)
   * Mac: [Install OpenCV 4.0 on Mac](https://www.learnopencv.com/install-opencv-4-on-macos/) - [Code](https://github.com/spmallick/learnopencv/blob/master/InstallScripts/installOpenCV-4-macos.sh)
   * Windows: [Install OpenCV 4.0 on Windows](https://www.learnopencv.com/install-opencv-4-on-windows/) - [Code](https://github.com/spmallick/learnopencv/tree/master/InstallScripts/Windows-4)
+* squeezenet v1.1
+  * squeezenet_v1.1.caffemodel in top level GitHub project directory or [Download](https://raw.githubusercontent.com/DeepScale/SqueezeNet/b5c3f1a23713c8b3fd7b801d229f6b04c64374a5/SqueezeNet_v1.1/squeezenet_v1.1.caffemodel)
+  * squeezenet_v1.1.prototxt in top level GitHub project directory or [Download](https://raw.githubusercontent.com/opencv/opencv_extra/master/testdata/dnn/squeezenet_v1.1.prototxt)
 
 ## Installation instructions for OpenCV 4 on Ubuntu 20.04 LTS
 
@@ -86,9 +89,12 @@ HOWEVER neither worked for me.
 
 SOLUTION from https://answers.opencv.org/question/136182/installation-of-opencv-in-a-local-directory-in-ubuntu-1604/:
 Create opencv.conf in /etc/ld.so.conf.d/ and insert:
- # OpenCV default configuration
+```
+# OpenCV default configuration
 /home/tlroot/installation/OpenCV-master/lib/
- # https://answers.opencv.org/question/136182/installation-of-opencv-in-a-local-directory-in-ubuntu-1604/
+# https://answers.opencv.org/question/136182/installation-of-opencv-in-a-local-directory-in-ubuntu-1604/
+```
+
 ```
 $ sudo ldconfig -v
 ```
@@ -96,11 +102,13 @@ $ sudo ldconfig -v
 ## Basic Build Instructions
 
 1. git clone https://github.com/ProfHariSeldon/CppND-Capstone-Hello-World.git
-2. Check that make, cmake, gcc/g++, and Visual Studio Code are installed.
-3. Install Open CV 4 (see above section)
-4. Make a build directory in the top level directory: `mkdir build && cd build`
-5. Compile: `cmake .. && make`
-6. Run it: `./classifier`.
+2. Check that squeezenet_v1.1.caffemodel, squeezenet_v1.1.prototxt, and CMakeLists.txt are in top level GitHub project directory.
+3. Check that launch.json and settings.json are in ./.vscode directory
+4. Check that make, cmake, gcc/g++, and Visual Studio Code are installed.  Install them if not installed.
+5. Install Open CV 4 (see above section)
+6. Make a build directory in the top level directory: `mkdir build && cd build`
+7. Compile: `cmake .. && make`
+8. Run it: `./classifier`.
 
 ## How I got this repo's resources
 
