@@ -10,6 +10,7 @@ CMakeFiles/classifier.dir/cats.vs.dogs.cpp.o
  /home/tlroot/installation/OpenCV-master/include/opencv4/opencv2/core/base.hpp
  /home/tlroot/installation/OpenCV-master/include/opencv4/opencv2/core/bufferpool.hpp
  /home/tlroot/installation/OpenCV-master/include/opencv4/opencv2/core/check.hpp
+ /home/tlroot/installation/OpenCV-master/include/opencv4/opencv2/core/core.hpp
  /home/tlroot/installation/OpenCV-master/include/opencv4/opencv2/core/cuda.hpp
  /home/tlroot/installation/OpenCV-master/include/opencv4/opencv2/core/cuda.inl.hpp
  /home/tlroot/installation/OpenCV-master/include/opencv4/opencv2/core/cuda_types.hpp
@@ -79,6 +80,7 @@ CMakeFiles/classifier.dir/cats.vs.dogs.cpp.o
  /home/tlroot/installation/OpenCV-master/include/opencv4/opencv2/flann/saving.h
  /home/tlroot/installation/OpenCV-master/include/opencv4/opencv2/flann/timer.h
  /home/tlroot/installation/OpenCV-master/include/opencv4/opencv2/highgui.hpp
+ /home/tlroot/installation/OpenCV-master/include/opencv4/opencv2/highgui/highgui.hpp
  /home/tlroot/installation/OpenCV-master/include/opencv4/opencv2/imgcodecs.hpp
  /home/tlroot/installation/OpenCV-master/include/opencv4/opencv2/imgproc.hpp
  /home/tlroot/installation/OpenCV-master/include/opencv4/opencv2/ml.hpp

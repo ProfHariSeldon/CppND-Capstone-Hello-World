@@ -16,14 +16,26 @@
     using namespace cv;
     using namespace std;
     
+    // TL: The Udacity C++ Memory Management Chatbot creates a GUI, however that code is very complicated.
+    // TL: All I need to do is display dog and cat images and listen for keystrokes so that the user can play a game to see how fast they can classify images.
+    // TL: I found a tutorial (URL below) to use OpenCV to display images very easily.
+    // TL: https://docs.opencv.org/2.4/doc/tutorials/introduction/display_image/display_image.html
+    // TL: MY CODE START
+    #include <opencv2/core/core.hpp>
+    #include <opencv2/highgui/highgui.hpp>
+    #include <iostream>
+    // TL: MY CODE END
+
     int main(int argc, char** argv)
     {
+        // COMMENT OUT TO TEST USER IMAGE CLASSIFICATION ONLY
+        /*
         vector<String> fn;
         // ORIGINAL CODE:
         // glob("c:/data/cat-dog/*.jpg", fn, true);
         // MY CODE:
         // TL: fill string vector fn with the names of the cat and dog pictures, recursively
-        // https://docs.opencv.org/3.4/dc/dfa/namespacecv_1_1utils_1_1fs.html#a4ad0cea222ba9846c8b78afedf5832cf
+        // TL: https://docs.opencv.org/3.4/dc/dfa/namespacecv_1_1utils_1_1fs.html#a4ad0cea222ba9846c8b78afedf5832cf
         glob("/home/tlroot/Documents/C++/Capstone/OpenCVCNN/cat-dog/*.jpg", fn, true);
         // glob() will conveniently sort names lexically, so the cats come first!
         // so we have 700 cats, 699 dogs, and split it into:
@@ -41,46 +53,46 @@
         // TL CODE:
         std::string modelBin = "/home/tlroot/Documents/C++/Capstone/OpenCVCNN/squeezenet_v1.1.caffemodel";
         // TL: create an OpenCV neural network "net".  Load in the structure (squeezenet_v1.1.prototxt) and load in the weights (squeezenet_v1.1.caffemodel)
-        // https://github.com/opencv/opencv/blob/master/modules/dnn/include/opencv2/dnn/dnn.hpp
+        // TL: https://github.com/opencv/opencv/blob/master/modules/dnn/include/opencv2/dnn/dnn.hpp
         dnn::Net net = dnn::readNetFromCaffe(modelTxt, modelBin);
         // TL: set the size of the images that "net" will be trained on to 277 pixels wide and 277 pixels high.
-        // https://docs.opencv.org/master/d5/df1/tutorial_js_some_data_structures.html
+        // TL: https://docs.opencv.org/master/d5/df1/tutorial_js_some_data_structures.html
         cv::Size inputImgSize = cv::Size(227, 227); // model was trained with this size
     
         // TL: I believe this is an 2D matrix layers that has 4 columns and 1 row
         // https://docs.opencv.org/4.2.0/dc/d84/group__core__basic.html
         Mat_<int> layers(4, 1);
         // TL: 1000 inputs, 400 hidden layer 1 neurons, 100 hidden layer 2 neurons, 2 outputs
-        // https://answers.opencv.org/question/191950/dnn-questions/?answer=191951
+        // TL: https://answers.opencv.org/question/191950/dnn-questions/?answer=191951
         layers << 1000, 400, 100, 2; // the sqeezenet pool10 layer has 1000 neurons
     
         // TL: Create Artificial Neural Network - Multi-Layer Perceptron
-        // https://docs.opencv.org/master/javadoc/org/opencv/ml/ANN_MLP.html
+        // TL: https://docs.opencv.org/master/javadoc/org/opencv/ml/ANN_MLP.html
         Ptr<ml::ANN_MLP> nn = ml::ANN_MLP::create();
         // TL: set layers of the ANN
         nn->setLayerSizes(layers);
         // TL: set training method for the ANN to backpropogation and bp_dw_scale sets gradient decent step size to 0.0001
-        // https://docs.opencv.org/2.4/modules/ml/doc/neural_networks.html
-        // https://stackoverflow.com/questions/16955599/what-does-parameter-bp-moment-scale-mean-in-opencvs-ann
-        // https://docs.opencv.org/3.4/d0/dce/classcv_1_1ml_1_1ANN__MLP.html#a4be093cfd2e743ee2f41e34e50cf3a54
+        // TL: https://docs.opencv.org/2.4/modules/ml/doc/neural_networks.html
+        // TL: https://stackoverflow.com/questions/16955599/what-does-parameter-bp-moment-scale-mean-in-opencvs-ann
+        // TL: https://docs.opencv.org/3.4/d0/dce/classcv_1_1ml_1_1ANN__MLP.html#a4be093cfd2e743ee2f41e34e50cf3a54
         nn->setTrainMethod(ml::ANN_MLP::BACKPROP, 0.0001);
         // TL: set activation function for the ANN to Symmetrical sigmoid
-        // https://docs.opencv.org/3.4/d0/dce/classcv_1_1ml_1_1ANN__MLP.html#a16998f97db903c1c652e68f342240524
-        // https://docs.opencv.org/3.4/d0/dce/classcv_1_1ml_1_1ANN__MLP.html#ade71470ec8814021728f8b31b09773b0a90410002f1e243d35dca234f859f270e
+        // TL: https://docs.opencv.org/3.4/d0/dce/classcv_1_1ml_1_1ANN__MLP.html#a16998f97db903c1c652e68f342240524
+        // TL: https://docs.opencv.org/3.4/d0/dce/classcv_1_1ml_1_1ANN__MLP.html#ade71470ec8814021728f8b31b09773b0a90410002f1e243d35dca234f859f270e
         nn->setActivationFunction(ml::ANN_MLP::SIGMOID_SYM);
         // TL: MAX_ITER is "the maximum number of iterations or elements to compute"
         // TL: EPS is "the desired accuracy or change in parameters at which the iterative algorithm stops"
         // TL: 300 is maxCount "the maximum number of iterations/elements"
         // TL: 0.0001 is epsilon "the desired accuracy"
-        // https://docs.opencv.org/3.4/d0/dce/classcv_1_1ml_1_1ANN__MLP.html#ab6310aa2b5894ceb4e72008e62316182
-        // https://docs.opencv.org/3.4/d9/d5d/classcv_1_1TermCriteria.html#a56fecdc291ccaba8aad27d67ccf72c57a56ca2bc5cd06345060a1c1c66a8fc06e
+        // TL: https://docs.opencv.org/3.4/d0/dce/classcv_1_1ml_1_1ANN__MLP.html#ab6310aa2b5894ceb4e72008e62316182
+        // TL: https://docs.opencv.org/3.4/d9/d5d/classcv_1_1TermCriteria.html#a56fecdc291ccaba8aad27d67ccf72c57a56ca2bc5cd06345060a1c1c66a8fc06e
         nn->setTermCriteria(TermCriteria(TermCriteria::MAX_ITER+TermCriteria::EPS, 300, 0.0001));
     
         // TL: create "n-dimensional dense array class" train and test
-        // https://docs.opencv.org/trunk/d3/d63/classcv_1_1Mat.html#details
+        // TL: https://docs.opencv.org/trunk/d3/d63/classcv_1_1Mat.html#details
         Mat train, test;
         // TL: make a 1199x2 complex matrix with a CV_32F (2-channel (complex) floating-point array).  UNKNOWN what 0.f does
-        // https://docs.opencv.org/trunk/d3/d63/classcv_1_1Mat.html#details
+        // TL: https://docs.opencv.org/trunk/d3/d63/classcv_1_1Mat.html#details
         Mat labels(1199, 2, CV_32F, 0.f); // 1399 - 200 test images
         // TL: loop through fn, a string vector of the names of all of the images
         for (size_t i=0; i<fn.size(); i++) {
@@ -88,14 +100,14 @@
             // TL: imread loads image fn[i] from file and stores it in Mat img
             Mat img = imread(fn[i]);
             // TL: net.setInput adds image to input layer in net
-            // https://docs.opencv.org/3.4/db/d30/classcv_1_1dnn_1_1Net.html#a5e74adacffd6aa53d56046581de7fcbd
+            // TL: https://docs.opencv.org/3.4/db/d30/classcv_1_1dnn_1_1Net.html#a5e74adacffd6aa53d56046581de7fcbd
             // TL: blobFromImage creates 4-dimensional blob from image img
             // TL: img is the image
             // TL: 1 is scalefactor "multiplier for image values"
             // TL: inputImgSize is size "spatial size for output image"
             // TL: Scalar::all(127) is mean "scalar with mean values which are subtracted from channels. Values are intended to be in (mean-B, mean-G, mean-R) order if image has BGR ordering and swapRB is false."
             // TL: false is swapRB "flag which indicates that swap first and last channels in 3-channel image is necessary."
-            // https://docs.opencv.org/master/d6/d0f/group__dnn.html#ga29f34df9376379a603acd8df581ac8d7
+            // TL: https://docs.opencv.org/master/d6/d0f/group__dnn.html#ga29f34df9376379a603acd8df581ac8d7
             net.setInput(dnn::blobFromImage(img, 1, inputImgSize, Scalar::all(127), false));
             // TL: Runs forward pass to compute output of layer with name pool10
             // TL: Returns blob for first output of specified layer
@@ -103,7 +115,7 @@
             // TL: reshape changes the shape and/or the number of channels of 2D matrix blob without copying the data.
             // TL: first 1 is cn "New number of channels. If the parameter is 0, the number of channels remains the same."
             // TL: second 1 is rows "New number of rows. If the parameter is 0, the number of rows remains the same."
-            // https://docs.opencv.org/trunk/d3/d63/classcv_1_1Mat.html#a4eb96e3251417fa88b78e2abd6cfd7d8
+            // TL: https://docs.opencv.org/trunk/d3/d63/classcv_1_1Mat.html#a4eb96e3251417fa88b78e2abd6cfd7d8
             Mat f = blob.reshape(1,1).clone(); // now our feature has 1000 numbers
    
             // sort into train/test slots:
@@ -136,10 +148,10 @@
         // TL: train is InputArray samples "training samples"
         // TL: 0 is int layout
         // TL: labels is InputArray responses "vector of responses associated with the training samples."
-        // https://docs.opencv.org/3.4/db/d7d/classcv_1_1ml_1_1StatModel.html
+        // TL: https://docs.opencv.org/3.4/db/d7d/classcv_1_1ml_1_1StatModel.html
         nn->train(train, 0, labels); // yes, that'll take a few minutes ..
         // TL: save YAML (.yml/.yaml) file compressed with gzip (.gz)
-        // https://docs.opencv.org/master/dd/d74/tutorial_file_input_output_with_xml_yml.html
+        // TL: https://docs.opencv.org/master/dd/d74/tutorial_file_input_output_with_xml_yml.html
         nn->save("cats.dogs.ann.yml.gz");
     
         Mat result;
@@ -160,6 +172,22 @@
         // cout << correct_cat << " " << correct_dog << " : " << accuracy << endl;
         // TL CODE:
         cout << "Correct Cat: " << correct_cat << " " << "Correct Dog: " << correct_dog << " : " << "Accuracy: " << accuracy << endl;
+        */
+
+        
+
+        // TL: MY CODE START OF USER IMAGE CLASSIFICATION GAME
+        // https://stackoverflow.com/questions/20168797/opening-and-displaying-an-image-in-c
+        // read an image
+        // HELP why does only the full path work?
+        Mat image = imread("/home/tlroot/Documents/C++/Capstone/CppND-Capstone-Hello-World/cat-dog/cat.0.jpg");
+        // create image window named "My Image"
+        namedWindow("My Image");
+        // show the image on window
+        imshow("My Image", image);
+        // wait key forever
+        waitKey(0);
+        // TL: MY CODE END OF USER IMAGE CLASSIFICATION GAME
 
         return 0;
     }
