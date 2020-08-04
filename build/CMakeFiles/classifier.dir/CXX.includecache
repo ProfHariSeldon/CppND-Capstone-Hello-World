@@ -17,6 +17,10 @@ opencv2/highgui/highgui.hpp
 -
 iostream
 -
+cstdlib
+-
+string
+-
 
 /home/tlroot/installation/OpenCV-master/include/opencv4/opencv2/calib3d.hpp
 opencv2/core.hpp

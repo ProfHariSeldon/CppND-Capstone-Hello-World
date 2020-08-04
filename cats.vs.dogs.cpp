@@ -16,20 +16,24 @@
     using namespace cv;
     using namespace std;
     
-    // TL: The Udacity C++ Memory Management Chatbot creates a GUI, however that code is very complicated.
-    // TL: All I need to do is display dog and cat images and listen for keystrokes so that the user can play a game to see how fast they can classify images.
-    // TL: I found a tutorial (URL below) to use OpenCV to display images very easily.
-    // TL: https://docs.opencv.org/2.4/doc/tutorials/introduction/display_image/display_image.html
     // TL: MY CODE START
+    // The Udacity C++ Memory Management Chatbot creates a GUI, however that code is very complicated.
+    // All I need to do is display dog and cat images and listen for keystrokes so that the user can play a game to see how fast they can classify images.
+    // I found a tutorial (URL below) to use OpenCV to display images very easily.  The 3 #includes below are required to do this.
+    // https://docs.opencv.org/2.4/doc/tutorials/introduction/display_image/display_image.html
     #include <opencv2/core/core.hpp>
     #include <opencv2/highgui/highgui.hpp>
     #include <iostream>
+    // Below might be needed for srand and rand
+    #include <cstdlib>
+    // Below might be needed for converting iRNtestSet to string using to_string
+    #include <string> 
     // TL: MY CODE END
 
     int main(int argc, char** argv)
     {
         // COMMENT OUT TO TEST USER IMAGE CLASSIFICATION ONLY
-        
+        /*
         vector<String> fn;
         // ORIGINAL CODE:
         // glob("c:/data/cat-dog/*.jpg", fn, true);
@@ -172,19 +176,85 @@
         // cout << correct_cat << " " << correct_dog << " : " << accuracy << endl;
         // TL CODE:
         cout << "Correct Cat: " << correct_cat << " " << "Correct Dog: " << correct_dog << " : " << "Accuracy: " << accuracy << endl;
+        */
         
         // TL: MY CODE START OF USER IMAGE CLASSIFICATION GAME
-        // https://stackoverflow.com/questions/20168797/opening-and-displaying-an-image-in-c
-        // read an image
-        // HELP why does only the full path work?
-        // Mat image = imread("/home/tlroot/Documents/C++/Capstone/CppND-Capstone-Hello-World/cat-dog/cat.0.jpg");
-        Mat image = imread("../cat-dog/cat.0.jpg");
-        // create image window named "My Image"
-        namedWindow("My Image");
-        // show the image on window
-        imshow("My Image", image);
-        // wait key forever
-        waitKey(0);
+        bool bGameRunning = true;
+
+        cout << "USER IMAGE CLASSIFICATION GAME" << endl;
+        cout << "Instructions:" << endl;
+        cout << "Type c for Cat" << endl;
+        cout << "Type d for Dog" << endl;
+        cout << "Type q to Quit Game" << endl;
+        cout << "If you press any other key you must try again" << endl;
+        cout << endl;
+
+        while(bGameRunning) {
+            bool bGetCorrectKey = false;
+
+            // This link explains how to initialize the random seed and how to set rand() to the integer range you want.
+            // http://www.cplusplus.com/reference/cstdlib/rand/
+            // initialize random seed:
+            srand (time(NULL));
+
+            int iCatOrDog = rand() % 2;         // random number iCatOrDog in the range 0 to 1
+            // cout << "Random number: " << iCatOrDog << endl;
+
+            int iRNtestSet = rand() % 200 + 1000;         // random number iRNtestSet in the range 1000 to 1199 (the dog or cat test set images)
+            // cout << "Random number: " << iRN << endl;
+
+            // This link below explains that ${iRNtestSet}.jpg is supposed to work, but I tried it and it does not work for me
+            // https://stackoverflow.com/questions/46929684/assigning-a-variable-a-filename-in-bash
+            // cout << "../cat-dog/cat.${iRNtestSet}.jpg" << endl;
+            // cout << "../cat-dog/dog.${iRNtestSet}.jpg" << endl;
+
+            // This link below has an alternative I didn't use
+            // https://stackoverflow.com/questions/612097/how-can-i-get-the-list-of-files-in-a-directory-using-c-or-c
+
+            // This link below explains how to display an image using imread, namedWindow, and imshow.
+            // https://stackoverflow.com/questions/20168797/opening-and-displaying-an-image-in-c
+
+            // Define Mat image outside of the below if statement to avoid scope error
+            Mat image;
+
+            if (iCatOrDog == 0) {
+                cout << "../cat-dog/cat." + to_string(iRNtestSet) + ".jpg" << endl;
+                // read a cat image
+                image = imread("../cat-dog/cat." + to_string(iRNtestSet) + ".jpg");
+            }
+            if (iCatOrDog == 1) {
+                cout << "../cat-dog/dog." + to_string(iRNtestSet) + ".jpg" << endl;
+                // read a dog image
+                image = imread("../cat-dog/dog." + to_string(iRNtestSet) + ".jpg");
+            }
+
+            // create image window named "My Image"
+            namedWindow("My Image");
+            // show the image on window
+            imshow("My Image", image);
+            // wait for key input forever
+            // int k is the Decimal (DEC) value of the ASCII key: http://www.asciitable.com/
+            while(bGetCorrectKey == false) {
+                int k = waitKey(0);
+                if (k == 113) {  // If backspace key is pressed
+                    cout << "Quit Game" << endl;
+                    bGetCorrectKey = true;
+                    bGameRunning = false;
+                }
+                else if (k == 99) { // If key "c" is pressed
+                    cout << "Cat" << endl;
+                    bGetCorrectKey = true;
+                }
+                else if (k == 100) { // If key "d" is pressed
+                    cout << "Dog" << endl;
+                    bGetCorrectKey = true;
+                }
+                else { // If any other key is pressed
+                    cout << "Type c for Cat, d for Dog, q to quit" << endl;
+                    bGetCorrectKey = false;
+                }
+            }
+        }
         // TL: MY CODE END OF USER IMAGE CLASSIFICATION GAME
 
         return 0;
