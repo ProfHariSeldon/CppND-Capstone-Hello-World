@@ -29,7 +29,7 @@
     int main(int argc, char** argv)
     {
         // COMMENT OUT TO TEST USER IMAGE CLASSIFICATION ONLY
-        /*
+        
         vector<String> fn;
         // ORIGINAL CODE:
         // glob("c:/data/cat-dog/*.jpg", fn, true);
@@ -47,11 +47,11 @@
         // ORIGINAL CODE:
         // std::string modelTxt = "c:/data/mdl/squeezenet/deploy.prototxt";
         // TL CODE:
-        std::string modelTxt = "/home/tlroot/Documents/C++/Capstone/OpenCVCNN/squeezenet_v1.1.prototxt";
+        std::string modelTxt = "../squeezenet_v1.1.prototxt";
         // ORIGINAL CODE:
         // std::string modelBin = "c:/data/mdl/squeezenet/squeezenet_v1.1.caffemodel";
         // TL CODE:
-        std::string modelBin = "/home/tlroot/Documents/C++/Capstone/OpenCVCNN/squeezenet_v1.1.caffemodel";
+        std::string modelBin = "../squeezenet_v1.1.caffemodel";
         // TL: create an OpenCV neural network "net".  Load in the structure (squeezenet_v1.1.prototxt) and load in the weights (squeezenet_v1.1.caffemodel)
         // TL: https://github.com/opencv/opencv/blob/master/modules/dnn/include/opencv2/dnn/dnn.hpp
         dnn::Net net = dnn::readNetFromCaffe(modelTxt, modelBin);
@@ -172,15 +172,13 @@
         // cout << correct_cat << " " << correct_dog << " : " << accuracy << endl;
         // TL CODE:
         cout << "Correct Cat: " << correct_cat << " " << "Correct Dog: " << correct_dog << " : " << "Accuracy: " << accuracy << endl;
-        */
-
         
-
         // TL: MY CODE START OF USER IMAGE CLASSIFICATION GAME
         // https://stackoverflow.com/questions/20168797/opening-and-displaying-an-image-in-c
         // read an image
         // HELP why does only the full path work?
-        Mat image = imread("/home/tlroot/Documents/C++/Capstone/CppND-Capstone-Hello-World/cat-dog/cat.0.jpg");
+        // Mat image = imread("/home/tlroot/Documents/C++/Capstone/CppND-Capstone-Hello-World/cat-dog/cat.0.jpg");
+        Mat image = imread("../cat-dog/cat.0.jpg");
         // create image window named "My Image"
         namedWindow("My Image");
         // show the image on window
