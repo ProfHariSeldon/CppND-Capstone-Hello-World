@@ -8,6 +8,8 @@ The Capstone Project gave me a chance to learn how to build a package (OpenCV) f
 
 In this project, I built my own C++ application starting with this repo, following the principles I have learned throughout this Nanodegree Program. This project demonstrated that I can independently create applications using a wide range of C++ features.
 
+There are two blocks of cat and dog pictures.  Those ending in 0-499 and those ending in 1000-1199.  At the moment I am not sure which become the training set and which become the test set.
+
 ## The image classifier GitHub projects I investigated before settling on https://berak.github.io/smallfry/transfer.html
 
 * https://github.com/bennyfri/TFMacCpp
