@@ -26,7 +26,8 @@ Game::Game()
     // Constructor
     bGetCorrectKey = false;
     bGameRunning = true;
-    TickMeter tm;
+    dTotalTimeMilli = 0.0;
+    dAvgTimeMilli = 0.0;
 }
 */
 
@@ -43,7 +44,7 @@ void Game::Run() {
 
     bool bGameRunning = true;
 
-    vector<double> vdAvgTimeMilli; // list of how long it took to press c or d during the game
+    vector<double> vdTimeMilli; // list of how long it took to press c or d during the game
     vector<string> vsCorrectImageID; // list of filenames of correctly classified cats and dogs
     vector<string> vsWrongImageID; // list of filenames of wrongly classified cats and dogs
 
@@ -51,7 +52,7 @@ void Game::Run() {
         bool bGetCorrectKey = false;
         int k;
         TickMeter tm;
-        double dAvgTimeMilli;
+        double dTimeMilli;
 
         // This link explains how to initialize the random seed and how to set rand() to the integer range you want.
         // http://www.cplusplus.com/reference/cstdlib/rand/
@@ -119,10 +120,10 @@ void Game::Run() {
                 // Stop counting time
                 tm.stop();
                 // Record time it took to press the key
-                dAvgTimeMilli = tm.getAvgTimeMilli();
-                cout << "Milli: "  << dAvgTimeMilli << endl;
+                dTimeMilli = tm.getTimeMilli();
+                cout << "Milli: "  << dTimeMilli << endl;
                 // Add time it took to press the key to the end of a double vector
-                vdAvgTimeMilli.push_back(dAvgTimeMilli);
+                vdTimeMilli.push_back(dTimeMilli);
                 if (iCatOrDog == 0) { // If the image was a cat
                     // Record the image name at the end of the string vector of correct answers
                     vsCorrectImageID.push_back(sImageID);
@@ -140,10 +141,10 @@ void Game::Run() {
                 // Stop counting time
                 tm.stop();
                 // Record time it took to press the key
-                dAvgTimeMilli = tm.getAvgTimeMilli();
-                cout << "Milli: "  << dAvgTimeMilli << endl;
+                dTimeMilli = tm.getTimeMilli();
+                cout << "Milli: "  << dTimeMilli << endl;
                 // Add time it took to press the key to the end of a double vector
-                vdAvgTimeMilli.push_back(dAvgTimeMilli);
+                vdTimeMilli.push_back(dTimeMilli);
                 if (iCatOrDog == 0) { // If the image was a cat
                     // Record the image name at the end of the string vector of wrong answers
                     vsWrongImageID.push_back(sImageID);
@@ -167,20 +168,20 @@ void Game::Run() {
 
     // OLD way to do a for loop
     /*
-    for(int i = 0; i < vdAvgTimeMilli.size(); i++) {
-        dTotalTimeMilli += vdAvgTimeMilli[i];
+    for(int i = 0; i < vdTimeMilli.size(); i++) {
+        dTotalTimeMilli += vdTimeMilli[i];
     }
     */
 
     // Using iterator it to iterate through vector
     // http://www.cplusplus.com/reference/vector/vector/begin/
-    for (std::vector<double>::iterator it = vdAvgTimeMilli.begin(); it != vdAvgTimeMilli.end(); ++it) {
+    for (std::vector<double>::iterator it = vdTimeMilli.begin(); it != vdTimeMilli.end(); ++it) {
         // Add up total time for all key presses
         dTotalTimeMilli += *it;
     }
 
     // Find average time
-    dAvgTimeMilli = dTotalTimeMilli / vdAvgTimeMilli.size();
+    dAvgTimeMilli = dTotalTimeMilli / vdTimeMilli.size();
     cout << "Average time between c or d key presses: " << dAvgTimeMilli << endl;
 
     int iCorrectCat = 0;
