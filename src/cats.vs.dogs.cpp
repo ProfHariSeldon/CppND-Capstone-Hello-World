@@ -18,10 +18,13 @@
     using namespace cv;
     using namespace std;
 
-    // TL CODE START
+    // TL CODE 1 START
     // WARNING: do not #include "game.cpp" that causes multiple definitions of Game::Run()
     #include "game.h"
-    // TL CODE END
+
+    // Below might be needed for converting _iRNtestSet to string using to_string and .compare
+    #include <string> 
+    // TL CODE 1 END
 
     int main(int argc, char** argv)
     {
@@ -171,9 +174,11 @@
         cout << "Correct Cat: " << correct_cat << " " << "Correct Dog: " << correct_dog << " : " << "Accuracy: " << accuracy << endl;
         */
         
-        // TL CODE START
+        // TL CODE 2 START
+        int iTest = 11;
+        cout << "Test add int to end of string: " + to_string(iTest) << endl;
         Game manualClassification;
         manualClassification.Run();
-        // TL CODE END
+        // TL CODE 2 END
         return 0;
     }
