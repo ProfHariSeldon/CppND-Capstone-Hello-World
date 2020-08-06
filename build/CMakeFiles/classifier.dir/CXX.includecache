@@ -6,11 +6,11 @@
 
 #IncludeRegexTransform: 
 
-/home/tlroot/Documents/C++/Capstone/CppND-Capstone-Hello-World/cats.vs.dogs.cpp
+/home/tlroot/Documents/C++/Capstone/CppND-Capstone-Hello-World/src/cats.vs.dogs.cpp
 opencv2/opencv.hpp
-/home/tlroot/Documents/C++/Capstone/CppND-Capstone-Hello-World/opencv2/opencv.hpp
+/home/tlroot/Documents/C++/Capstone/CppND-Capstone-Hello-World/src/opencv2/opencv.hpp
 opencv2/dnn.hpp
-/home/tlroot/Documents/C++/Capstone/CppND-Capstone-Hello-World/opencv2/dnn.hpp
+/home/tlroot/Documents/C++/Capstone/CppND-Capstone-Hello-World/src/opencv2/dnn.hpp
 opencv2/core/core.hpp
 -
 opencv2/highgui/highgui.hpp
@@ -27,6 +27,8 @@ vector
 -
 string
 -
+
+/home/tlroot/Documents/C++/Capstone/CppND-Capstone-Hello-World/src/game.cpp
 
 /home/tlroot/installation/OpenCV-master/include/opencv4/opencv2/calib3d.hpp
 opencv2/core.hpp

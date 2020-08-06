@@ -123,32 +123,59 @@ classifier/fast:
 	$(MAKE) -f CMakeFiles/classifier.dir/build.make CMakeFiles/classifier.dir/build
 .PHONY : classifier/fast
 
-cats.vs.dogs.o: cats.vs.dogs.cpp.o
+src/cats.vs.dogs.o: src/cats.vs.dogs.cpp.o
 
-.PHONY : cats.vs.dogs.o
+.PHONY : src/cats.vs.dogs.o
 
 # target to build an object file
-cats.vs.dogs.cpp.o:
-	$(MAKE) -f CMakeFiles/classifier.dir/build.make CMakeFiles/classifier.dir/cats.vs.dogs.cpp.o
-.PHONY : cats.vs.dogs.cpp.o
+src/cats.vs.dogs.cpp.o:
+	$(MAKE) -f CMakeFiles/classifier.dir/build.make CMakeFiles/classifier.dir/src/cats.vs.dogs.cpp.o
+.PHONY : src/cats.vs.dogs.cpp.o
 
-cats.vs.dogs.i: cats.vs.dogs.cpp.i
+src/cats.vs.dogs.i: src/cats.vs.dogs.cpp.i
 
-.PHONY : cats.vs.dogs.i
+.PHONY : src/cats.vs.dogs.i
 
 # target to preprocess a source file
-cats.vs.dogs.cpp.i:
-	$(MAKE) -f CMakeFiles/classifier.dir/build.make CMakeFiles/classifier.dir/cats.vs.dogs.cpp.i
-.PHONY : cats.vs.dogs.cpp.i
+src/cats.vs.dogs.cpp.i:
+	$(MAKE) -f CMakeFiles/classifier.dir/build.make CMakeFiles/classifier.dir/src/cats.vs.dogs.cpp.i
+.PHONY : src/cats.vs.dogs.cpp.i
 
-cats.vs.dogs.s: cats.vs.dogs.cpp.s
+src/cats.vs.dogs.s: src/cats.vs.dogs.cpp.s
 
-.PHONY : cats.vs.dogs.s
+.PHONY : src/cats.vs.dogs.s
 
 # target to generate assembly for a file
-cats.vs.dogs.cpp.s:
-	$(MAKE) -f CMakeFiles/classifier.dir/build.make CMakeFiles/classifier.dir/cats.vs.dogs.cpp.s
-.PHONY : cats.vs.dogs.cpp.s
+src/cats.vs.dogs.cpp.s:
+	$(MAKE) -f CMakeFiles/classifier.dir/build.make CMakeFiles/classifier.dir/src/cats.vs.dogs.cpp.s
+.PHONY : src/cats.vs.dogs.cpp.s
+
+src/game.o: src/game.cpp.o
+
+.PHONY : src/game.o
+
+# target to build an object file
+src/game.cpp.o:
+	$(MAKE) -f CMakeFiles/classifier.dir/build.make CMakeFiles/classifier.dir/src/game.cpp.o
+.PHONY : src/game.cpp.o
+
+src/game.i: src/game.cpp.i
+
+.PHONY : src/game.i
+
+# target to preprocess a source file
+src/game.cpp.i:
+	$(MAKE) -f CMakeFiles/classifier.dir/build.make CMakeFiles/classifier.dir/src/game.cpp.i
+.PHONY : src/game.cpp.i
+
+src/game.s: src/game.cpp.s
+
+.PHONY : src/game.s
+
+# target to generate assembly for a file
+src/game.cpp.s:
+	$(MAKE) -f CMakeFiles/classifier.dir/build.make CMakeFiles/classifier.dir/src/game.cpp.s
+.PHONY : src/game.cpp.s
 
 # Help Target
 help:
@@ -159,9 +186,12 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... classifier"
-	@echo "... cats.vs.dogs.o"
-	@echo "... cats.vs.dogs.i"
-	@echo "... cats.vs.dogs.s"
+	@echo "... src/cats.vs.dogs.o"
+	@echo "... src/cats.vs.dogs.i"
+	@echo "... src/cats.vs.dogs.s"
+	@echo "... src/game.o"
+	@echo "... src/game.i"
+	@echo "... src/game.s"
 .PHONY : help
 
 

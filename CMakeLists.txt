@@ -12,9 +12,9 @@ find_package( OpenCV REQUIRED PATHS "/home/tlroot/installation/OpenCV-master/")
 
 project(classifier)
 
-file(GLOB SOURCES "/*.cpp")
-# add_executable(classifier ${SOURCES})
-add_executable( classifier cats.vs.dogs.cpp )
+file(GLOB project_SRCS "src/*.cpp")
+# add_executable(classifier ${project_SRCS})
+add_executable( classifier ${project_SRCS} )
 
 # https://docs.opencv.org/2.4/doc/tutorials/introduction/linux_gcc_cmake/linux_gcc_cmake.html
 target_link_libraries( classifier ${OpenCV_LIBS} )
