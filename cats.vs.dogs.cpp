@@ -1,4 +1,6 @@
 // Original cats.vs.dogs.cpp code author: https://github.com/berak
+// cats.vs.dogs.cpp copied from: https://gist.github.com/berak/70bcf5e8240c4af4426f9eff3f42121c
+
 // Extended by Thomas H. Lipscomb: https://github.com/ProfHariSeldon/
 // All comments with "TL:" are comments added by Thomas H. Lipscomb to berak's code to show that I understand it
 
@@ -30,6 +32,10 @@
     #include <string> 
     // Below might be needed for TickMeter
     #include <opencv2/core/utility.hpp>
+    // Below might be needed to do std::vector
+    #include <vector>
+    // Below might be required to compare strings
+    #include <string>
     // TL: MY CODE END
 
     int main(int argc, char** argv)
@@ -186,6 +192,25 @@
         vector<string> vsCorrectImageID;
         vector<string> vsWrongImageID;
 
+        if("cat1" == "cat.*") {
+            cout << "cat1 == cat.*" << endl;
+        }
+        else {
+            cout << "cat1 != cat.*" << endl;
+        }
+        if("dog1" == "dog.*") {
+            cout << "dog1 == dog.*" << endl;
+        }
+        else {
+            cout << "dog1 != dog.*" << endl;
+        }
+        if("dog" == "dog") {
+            cout << "dog == dog" << endl;
+        }
+        else {
+            cout << "dog != dog" << endl;
+        }
+
         cout << "USER IMAGE CLASSIFICATION GAME" << endl;
         cout << "Instructions:" << endl;
         cout << "Type c for Cat" << endl;
@@ -323,11 +348,47 @@
         // Using iterator it to iterate through vector
         // http://www.cplusplus.com/reference/vector/vector/begin/
         for (std::vector<double>::iterator it = vdAvgTimeMilli.begin(); it != vdAvgTimeMilli.end(); ++it) {
+            // Add up total time for all key presses
             dTotalTimeMilli += *it;
         }
 
+        // Find average time
         dAvgTimeMilli = dTotalTimeMilli / vdAvgTimeMilli.size();
         cout << "Average time between c or d key presses: " << dAvgTimeMilli << endl;
+
+        int iCorrectCat = 0;
+        int iCorrectDog = 0;
+
+        // WARNING: *it == "cat*" does not work because c++ does not do wildcard characters automatically, so use .compare except can't use an iterator beacuse:
+        // WARNING: iterators for the below do not work with .substr or .compare because they are vector strings not strings
+        // So for this I prefer "for(auto i: vsCorrectImageID)".  Can use auto or string.
+        // https://www.quora.com/How-do-I-iterate-through-a-vector-using-for-loop-in-C++
+        // And use string1.compare(0,3,string2)
+        // http://www.cplusplus.com/reference/string/string/compare/
+        for(string i: vsCorrectImageID) {
+            if(i.compare(0,3,"cat") == 0) {
+                iCorrectCat++;
+            }
+            if(i.compare(0,3,"dog") == 0) {
+                iCorrectDog++;
+            }
+        }
+        cout << "Correctly classified cats: " << iCorrectCat << endl;
+        cout << "Correctly classified dogs: " << iCorrectDog << endl;
+
+        int iWrongCat = 0;
+        int iWrongDog = 0;
+
+        for(string i: vsWrongImageID) {
+            if(i.compare(0,3,"cat") == 0) {
+                iWrongCat++;
+            }
+            if(i.compare(0,3,"dog") == 0) {
+                iWrongDog++;
+            }
+        }
+        cout << "Incorrectly classified cats: " << iWrongCat << endl;
+        cout << "Incorrectly classified dogs: " << iWrongDog << endl;
         // TL: MY CODE END OF USER IMAGE CLASSIFICATION GAME
 
         return 0;
