@@ -10,7 +10,7 @@
 #include <iostream>
 // Below might be needed for srand and rand
 #include <cstdlib>
-// Below might be needed for converting iRNtestSet to string using to_string and .compare
+// Below might be needed for converting _iRNtestSet to string using to_string and .compare
 #include <string> 
 // Below might be needed for TickMeter
 #include <opencv2/core/utility.hpp>
@@ -23,14 +23,14 @@ using namespace std;
 Game::Game()
 {
     // Constructor
-    bGameRunning = true; // True if game continues, False to end game
-    bGetCorrectKey = false; // Starts out false, becomes true if c or d is pressed
-    dTotalTimeMilli = 0.0; // Total time system was idle waiting for key presses
-    dAvgTimeMilli = 0.0; // Average time it took to press a key
-    iCorrectCat = 0; // Number of correctly classified cats
-    iCorrectDog = 0; // Number of correctly classified dogs
-    iWrongCat = 0; // Number of wrongly classified cats
-    iWrongDog = 0; // Number of wrongly classified dogs
+    _bGameRunning = true; // True if game continues, False to end game
+    _bGetCorrectKey = false; // Starts out false, becomes true if c or d is pressed
+    _dTotalTimeMilli = 0.0; // Total time system was idle waiting for key presses
+    _dAvgTimeMilli = 0.0; // Average time it took to press a key
+    _iCorrectCat = 0; // Number of correctly classified cats
+    _iCorrectDog = 0; // Number of correctly classified dogs
+    _iWrongCat = 0; // Number of wrongly classified cats
+    _iWrongDog = 0; // Number of wrongly classified dogs
 }
 
     // TL: MY CODE START OF USER IMAGE CLASSIFICATION GAME
@@ -44,17 +44,17 @@ void Game::Run() {
     cout << "If you press any other key you must try again" << endl;
     cout << endl;
 
-    // bool bGameRunning = true;
+    // bool _bGameRunning = true;
 
-    // vector<double> vdTimeMilli; // list of how long it took to press c or d during the game
-    // vector<string> vsCorrectImageID; // list of filenames of correctly classified cats and dogs
-    // vector<string> vsWrongImageID; // list of filenames of wrongly classified cats and dogs
+    // vector<double> _vdTimeMilli; // list of how long it took to press c or d during the game
+    // vector<string> _vsCorrectImageID; // list of filenames of correctly classified cats and dogs
+    // vector<string> _vsWrongImageID; // list of filenames of wrongly classified cats and dogs
 
-    while(bGameRunning) {
-        bGetCorrectKey = false;
-        // int k;
-        // TickMeter tm;
-        // double dTimeMilli;
+    while(_bGameRunning) {
+        _bGetCorrectKey = false;
+        // int _k;
+        // TickMeter _tm;
+        // double _dTimeMilli;
 
         // This link explains how to initialize the random seed and how to set rand() to the integer range you want.
         // http://www.cplusplus.com/reference/cstdlib/rand/
@@ -62,162 +62,162 @@ void Game::Run() {
         srand (time(NULL));
 
         // random integer in the range 0 to 1
-        iCatOrDog = rand() % 2;
+        _iCatOrDog = rand() % 2;
 
         // random integer in the range 1000 to 1199 (the dog or cat test set images I think)
-        iRNtestSet = rand() % 200 + 1000;         
+        _iRNtestSet = rand() % 200 + 1000;         
 
-        // This link below explains that ${iRNtestSet}.jpg is supposed to work, but I tried it and it does not work for me
+        // This link below explains that ${_iRNtestSet}.jpg is supposed to work, but I tried it and it does not work for me
         // https://stackoverflow.com/questions/46929684/assigning-a-variable-a-filename-in-bash
-        // cout << "../cat-dog/cat.${iRNtestSet}.jpg" << endl;
-        // cout << "../cat-dog/dog.${iRNtestSet}.jpg" << endl;
+        // cout << "../cat-dog/cat.${_iRNtestSet}.jpg" << endl;
+        // cout << "../cat-dog/dog.${_iRNtestSet}.jpg" << endl;
 
         // This link below has an alternative I didn't use
         // https://stackoverflow.com/questions/612097/how-can-i-get-the-list-of-files-in-a-directory-using-c-or-c
 
         // Cat or Dog image filename
-        // string sImageID;
+        // string _sImageID;
 
         // This link below explains how to display an image using imread, namedWindow, and imshow.
         // https://stackoverflow.com/questions/20168797/opening-and-displaying-an-image-in-c
 
         // Define Mat image outside of the below if statement to avoid scope error
-        // Mat image;
+        // Mat _image;
 
-        if (iCatOrDog == 0) { // If the image will be a cat
-            sImageID = "cat." + to_string(iRNtestSet) + ".jpg";
-            cout << "../cat-dog/" + sImageID << endl;
+        if (_iCatOrDog == 0) { // If the image will be a cat
+            _sImageID = "cat." + to_string(_iRNtestSet) + ".jpg";
+            cout << "../cat-dog/" + _sImageID << endl;
             // read a cat image
-            image = imread("../cat-dog/" + sImageID);
+            _image = imread("../cat-dog/" + _sImageID);
         }
-        if (iCatOrDog == 1) { // If the image will be a dog
-            sImageID = "dog." + to_string(iRNtestSet) + ".jpg";
-            cout << "../cat-dog/" + sImageID << endl;
+        if (_iCatOrDog == 1) { // If the image will be a dog
+            _sImageID = "dog." + to_string(_iRNtestSet) + ".jpg";
+            cout << "../cat-dog/" + _sImageID << endl;
             // read a dog image
-            image = imread("../cat-dog/" + sImageID);
+            _image = imread("../cat-dog/" + _sImageID);
         }
 
         // create image window named "My Image"
         namedWindow("My Image");
         // show the image on window
-        imshow("My Image", image);
+        imshow("My Image", _image);
 
         // Keep going until the user types q, c, or d
-        while(bGetCorrectKey == false) {
+        while(_bGetCorrectKey == false) {
             // Start counting time
-            tm.start();
+            _tm.start();
             // wait for key input forever
             // int k is the Decimal (DEC) value of the ASCII key: http://www.asciitable.com/
-            k = waitKey(0);
-            if (k == 113) {  // If key "q" is pressed
+            _k = waitKey(0);
+            if (_k == 113) {  // If key "q" is pressed
                 cout << "Quit Game" << endl;
-                bGetCorrectKey = true;
-                bGameRunning = false;
+                _bGetCorrectKey = true;
+                _bGameRunning = false;
                 // Stop counting time
-                tm.stop();
+                _tm.stop();
             }
-            else if (k == 99) { // If key "c" is pressed
+            else if (_k == 99) { // If key "c" is pressed
                 cout << "Cat" << endl;
-                bGetCorrectKey = true;
+                _bGetCorrectKey = true;
                 // Stop counting time
-                tm.stop();
+                _tm.stop();
                 // Record time it took to press the key
-                dTimeMilli = tm.getTimeMilli();
-                cout << "Milli: "  << dTimeMilli << endl;
+                _dTimeMilli = _tm.getTimeMilli();
+                cout << "Milli: "  << _dTimeMilli << endl;
                 // Add time it took to press the key to the end of a double vector
-                vdTimeMilli.push_back(dTimeMilli);
-                if (iCatOrDog == 0) { // If the image was a cat
+                _vdTimeMilli.push_back(_dTimeMilli);
+                if (_iCatOrDog == 0) { // If the image was a cat
                     // Record the image name at the end of the string vector of correct answers
-                    vsCorrectImageID.push_back(sImageID);
+                    _vsCorrectImageID.push_back(_sImageID);
                     cout << "Correct answer" << endl;
                 }
-                if (iCatOrDog == 1) { // If the image was a dog
+                if (_iCatOrDog == 1) { // If the image was a dog
                     // Record the image name at the end of the string vector of wrong answers
-                    vsWrongImageID.push_back(sImageID);
+                    _vsWrongImageID.push_back(_sImageID);
                     cout << "Wrong answer" << endl;
                 }
             }
-            else if (k == 100) { // If key "d" is pressed
+            else if (_k == 100) { // If key "d" is pressed
                 cout << "Dog" << endl;
-                bGetCorrectKey = true;
+                _bGetCorrectKey = true;
                 // Stop counting time
-                tm.stop();
+                _tm.stop();
                 // Record time it took to press the key
-                dTimeMilli = tm.getTimeMilli();
-                cout << "Milli: "  << dTimeMilli << endl;
+                _dTimeMilli = _tm.getTimeMilli();
+                cout << "Milli: "  << _dTimeMilli << endl;
                 // Add time it took to press the key to the end of a double vector
-                vdTimeMilli.push_back(dTimeMilli);
-                if (iCatOrDog == 0) { // If the image was a cat
+                _vdTimeMilli.push_back(_dTimeMilli);
+                if (_iCatOrDog == 0) { // If the image was a cat
                     // Record the image name at the end of the string vector of wrong answers
-                    vsWrongImageID.push_back(sImageID);
+                    _vsWrongImageID.push_back(_sImageID);
                     cout << "Wrong answer" << endl;
                 }
-                if (iCatOrDog == 1) { // If the image was a dog
+                if (_iCatOrDog == 1) { // If the image was a dog
                     // Record the image name at the end of the string vector of correct answers
-                    vsCorrectImageID.push_back(sImageID);
+                    _vsCorrectImageID.push_back(_sImageID);
                     cout << "Correct answer" << endl;
                 }
             }
             else { // If any other key is pressed
                 cout << "Type c for Cat, d for Dog, q to quit" << endl;
-                bGetCorrectKey = false;
+                _bGetCorrectKey = false;
             }
         }
     }
 
-    // double dTotalTimeMilli = 0.0;
-    // double dAvgTimeMilli = 0.0;
+    // double _dTotalTimeMilli = 0.0;
+    // double _dAvgTimeMilli = 0.0;
 
     // OLD way to do a for loop
     /*
-    for(int i = 0; i < vdTimeMilli.size(); i++) {
-        dTotalTimeMilli += vdTimeMilli[i];
+    for(int i = 0; i < _vdTimeMilli.size(); i++) {
+        _dTotalTimeMilli += _vdTimeMilli[i];
     }
     */
 
     // Using iterator it to iterate through vector
     // http://www.cplusplus.com/reference/vector/vector/begin/
-    for (std::vector<double>::iterator it = vdTimeMilli.begin(); it != vdTimeMilli.end(); ++it) {
+    for (std::vector<double>::iterator it = _vdTimeMilli.begin(); it != _vdTimeMilli.end(); ++it) {
         // Add up total time for all key presses
-        dTotalTimeMilli += *it;
+        _dTotalTimeMilli += *it;
     }
 
     // Find average time
-    dAvgTimeMilli = dTotalTimeMilli / vdTimeMilli.size();
-    cout << "Average time between c or d key presses: " << dAvgTimeMilli << endl;
+    _dAvgTimeMilli = _dTotalTimeMilli / _vdTimeMilli.size();
+    cout << "Average time between c or d key presses: " << _dAvgTimeMilli << endl;
 
-    // int iCorrectCat = 0;
-    // int iCorrectDog = 0;
+    // int _iCorrectCat = 0;
+    // int _iCorrectDog = 0;
 
     // WARNING: *it == "cat*" does not work because c++ does not do wildcard characters automatically, so use .compare except can't use an iterator beacuse:
     // WARNING: iterators for the below do not work with .substr or .compare because they are vector strings not strings
-    // So for this I prefer "for(auto i: vsCorrectImageID)".  Can use auto or string.
+    // So for this I prefer "for(auto i: _vsCorrectImageID)".  Can use auto or string.
     // https://www.quora.com/How-do-I-iterate-through-a-vector-using-for-loop-in-C++
     // And use string1.compare(0,3,string2)
     // http://www.cplusplus.com/reference/string/string/compare/
-    for(string i: vsCorrectImageID) {
+    for(string i: _vsCorrectImageID) {
         if(i.compare(0,3,"cat") == 0) {
-            iCorrectCat++;
+            _iCorrectCat++;
         }
         if(i.compare(0,3,"dog") == 0) {
-            iCorrectDog++;
+            _iCorrectDog++;
         }
     }
-    cout << "Correctly classified cats: " << iCorrectCat << endl;
-    cout << "Correctly classified dogs: " << iCorrectDog << endl;
+    cout << "Correctly classified cats: " << _iCorrectCat << endl;
+    cout << "Correctly classified dogs: " << _iCorrectDog << endl;
 
-    // int iWrongCat = 0;
-    // int iWrongDog = 0;
+    // int _iWrongCat = 0;
+    // int _iWrongDog = 0;
 
-    for(string i: vsWrongImageID) {
+    for(string i: _vsWrongImageID) {
         if(i.compare(0,3,"cat") == 0) {
-            iWrongCat++;
+            _iWrongCat++;
         }
         if(i.compare(0,3,"dog") == 0) {
-            iWrongDog++;
+            _iWrongDog++;
         }
     }
-    cout << "Incorrectly classified cats: " << iWrongCat << endl;
-    cout << "Incorrectly classified dogs: " << iWrongDog << endl;
+    cout << "Incorrectly classified cats: " << _iWrongCat << endl;
+    cout << "Incorrectly classified dogs: " << _iWrongDog << endl;
     // TL: MY CODE END OF USER IMAGE CLASSIFICATION GAME
 }
