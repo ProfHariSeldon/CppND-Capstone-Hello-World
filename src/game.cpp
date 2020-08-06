@@ -20,16 +20,18 @@
 using namespace cv;
 using namespace std;
 
-/*
 Game::Game()
 {
     // Constructor
-    bGetCorrectKey = false;
-    bGameRunning = true;
-    dTotalTimeMilli = 0.0;
-    dAvgTimeMilli = 0.0;
+    bGameRunning = true; // True if game continues, False to end game
+    bGetCorrectKey = false; // Starts out false, becomes true if c or d is pressed
+    dTotalTimeMilli = 0.0; // Total time system was idle waiting for key presses
+    dAvgTimeMilli = 0.0; // Average time it took to press a key
+    iCorrectCat = 0; // Number of correctly classified cats
+    iCorrectDog = 0; // Number of correctly classified dogs
+    iWrongCat = 0; // Number of wrongly classified cats
+    iWrongDog = 0; // Number of wrongly classified dogs
 }
-*/
 
     // TL: MY CODE START OF USER IMAGE CLASSIFICATION GAME
         // Stay playing game in while loop until quit game
@@ -42,17 +44,17 @@ void Game::Run() {
     cout << "If you press any other key you must try again" << endl;
     cout << endl;
 
-    bool bGameRunning = true;
+    // bool bGameRunning = true;
 
-    vector<double> vdTimeMilli; // list of how long it took to press c or d during the game
-    vector<string> vsCorrectImageID; // list of filenames of correctly classified cats and dogs
-    vector<string> vsWrongImageID; // list of filenames of wrongly classified cats and dogs
+    // vector<double> vdTimeMilli; // list of how long it took to press c or d during the game
+    // vector<string> vsCorrectImageID; // list of filenames of correctly classified cats and dogs
+    // vector<string> vsWrongImageID; // list of filenames of wrongly classified cats and dogs
 
     while(bGameRunning) {
-        bool bGetCorrectKey = false;
-        int k;
-        TickMeter tm;
-        double dTimeMilli;
+        bGetCorrectKey = false;
+        // int k;
+        // TickMeter tm;
+        // double dTimeMilli;
 
         // This link explains how to initialize the random seed and how to set rand() to the integer range you want.
         // http://www.cplusplus.com/reference/cstdlib/rand/
@@ -60,10 +62,10 @@ void Game::Run() {
         srand (time(NULL));
 
         // random integer in the range 0 to 1
-        int iCatOrDog = rand() % 2;
+        iCatOrDog = rand() % 2;
 
         // random integer in the range 1000 to 1199 (the dog or cat test set images I think)
-        int iRNtestSet = rand() % 200 + 1000;         
+        iRNtestSet = rand() % 200 + 1000;         
 
         // This link below explains that ${iRNtestSet}.jpg is supposed to work, but I tried it and it does not work for me
         // https://stackoverflow.com/questions/46929684/assigning-a-variable-a-filename-in-bash
@@ -74,13 +76,13 @@ void Game::Run() {
         // https://stackoverflow.com/questions/612097/how-can-i-get-the-list-of-files-in-a-directory-using-c-or-c
 
         // Cat or Dog image filename
-        string sImageID;
+        // string sImageID;
 
         // This link below explains how to display an image using imread, namedWindow, and imshow.
         // https://stackoverflow.com/questions/20168797/opening-and-displaying-an-image-in-c
 
         // Define Mat image outside of the below if statement to avoid scope error
-        Mat image;
+        // Mat image;
 
         if (iCatOrDog == 0) { // If the image will be a cat
             sImageID = "cat." + to_string(iRNtestSet) + ".jpg";
@@ -163,8 +165,8 @@ void Game::Run() {
         }
     }
 
-    double dTotalTimeMilli = 0.0;
-    double dAvgTimeMilli = 0.0;
+    // double dTotalTimeMilli = 0.0;
+    // double dAvgTimeMilli = 0.0;
 
     // OLD way to do a for loop
     /*
@@ -184,8 +186,8 @@ void Game::Run() {
     dAvgTimeMilli = dTotalTimeMilli / vdTimeMilli.size();
     cout << "Average time between c or d key presses: " << dAvgTimeMilli << endl;
 
-    int iCorrectCat = 0;
-    int iCorrectDog = 0;
+    // int iCorrectCat = 0;
+    // int iCorrectDog = 0;
 
     // WARNING: *it == "cat*" does not work because c++ does not do wildcard characters automatically, so use .compare except can't use an iterator beacuse:
     // WARNING: iterators for the below do not work with .substr or .compare because they are vector strings not strings
@@ -204,8 +206,8 @@ void Game::Run() {
     cout << "Correctly classified cats: " << iCorrectCat << endl;
     cout << "Correctly classified dogs: " << iCorrectDog << endl;
 
-    int iWrongCat = 0;
-    int iWrongDog = 0;
+    // int iWrongCat = 0;
+    // int iWrongDog = 0;
 
     for(string i: vsWrongImageID) {
         if(i.compare(0,3,"cat") == 0) {
