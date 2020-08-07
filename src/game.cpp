@@ -76,8 +76,8 @@ int Game::RandomImage(int iWidth, int iStart) {
 string Game::LoadImage(string sHeadsOrTails, int iImageID) {
         // This link below explains that ${iImageID}.jpg is supposed to work, but I tried it and it does not work for me
         // https://stackoverflow.com/questions/46929684/assigning-a-variable-a-filename-in-bash
-        // cout << "../cat-dog/cat.${iImageID}.jpg" << endl;
-        // cout << "../cat-dog/dog.${iImageID}.jpg" << endl;
+        // cout << "../images/cat.${iImageID}.jpg" << endl;
+        // cout << "../images/dog.${iImageID}.jpg" << endl;
 
         // This link below has an alternative I didn't use
         // https://stackoverflow.com/questions/612097/how-can-i-get-the-list-of-files-in-a-directory-using-c-or-c
@@ -87,8 +87,8 @@ string Game::LoadImage(string sHeadsOrTails, int iImageID) {
 
         // sImageID is Image filename
         string sImageID = sHeadsOrTails + "." + to_string(iImageID) + ".jpg";
-        cout << "../cat-dog/" + sImageID << endl;
-        _image = imread("../cat-dog/" + sImageID);
+        cout << "../images/" + sImageID << endl;
+        _image = imread("../images/" + sImageID);
 
         // create image window named "My Image"
         namedWindow("My Image");

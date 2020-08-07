@@ -33,7 +33,7 @@
         // MY CODE:
         // TL: fill string vector fn with the names of the cat and dog pictures, recursively
         // TL: https://docs.opencv.org/3.4/dc/dfa/namespacecv_1_1utils_1_1fs.html#a4ad0cea222ba9846c8b78afedf5832cf
-        glob("/home/tlroot/Documents/C++/Capstone/OpenCVCNN/cat-dog/*.jpg", fn, true);
+        glob("../images/*.jpg", fn, true);
         // glob() will conveniently sort names lexically, so the cats come first!
         // so we have 700 cats, 699 dogs, and split it into:
         // 100 test cats
