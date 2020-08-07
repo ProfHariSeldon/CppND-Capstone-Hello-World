@@ -25,8 +25,6 @@ Game::Game()
     // Constructor
     _bGameRunning = true; // True if game continues, False to end game
     _bGetCorrectKey = false; // Starts out false, becomes true if c or d is pressed
-    _dTotalTimeMilli = 0.0; // Total time system was idle waiting for key presses
-    _dAvgTimeMilli = 0.0; // Average time it took to press a key
     _iCorrectCat = 0; // Number of correctly classified cats
     _iCorrectDog = 0; // Number of correctly classified dogs
     _iWrongCat = 0; // Number of wrongly classified cats
@@ -130,7 +128,7 @@ string Game::LoadImage(string sCatOrDog, int iImageID) {
         // This link below explains how to display an image using imread, namedWindow, and imshow.
         // https://stackoverflow.com/questions/20168797/opening-and-displaying-an-image-in-c
 
-        string sImageID;
+        string sImageID; // Image filename
 
         if (sCatOrDog == "cat") { // If the image will be a cat
             sImageID = "cat." + to_string(iImageID) + ".jpg";
@@ -157,28 +155,31 @@ string Game::LoadImage(string sCatOrDog, int iImageID) {
 void Game::ClassifyImage(string sCatOrDog, string sImageID) {
     // Keep going until the user types q, c, or d
     while(_bGetCorrectKey == false) {
+        int k; // ASCII Decimal value, the identity of the key that was pressed
+        double dTimeMilli; // How long it took to press a key
+        TickMeter tm; // Used to measure the time it took to press a key
         // Start counting time
-        _tm.start();
+        tm.start();
         // wait for key input forever
-        // int _k is the Decimal (DEC) value of the ASCII key: http://www.asciitable.com/
-        _k = waitKey(0);
-        if (_k == 113) {  // If key "q" is pressed
+        // int k is the Decimal (DEC) value of the ASCII key: http://www.asciitable.com/
+        k = waitKey(0);
+        if (k == 113) {  // If key "q" is pressed
             cout << "Quit Game" << endl;
             _bGetCorrectKey = true;
             _bGameRunning = false;
             // Stop counting time
-            _tm.stop();
+            tm.stop();
         }
-        else if (_k == 99) { // If key "c" is pressed
+        else if (k == 99) { // If key "c" is pressed
             cout << "Cat" << endl;
             _bGetCorrectKey = true;
             // Stop counting time
-            _tm.stop();
+            tm.stop();
             // Record time it took to press the key
-            _dTimeMilli = _tm.getTimeMilli();
-            cout << "Milli: "  << _dTimeMilli << endl;
+            dTimeMilli = tm.getTimeMilli();
+            cout << "Milli: "  << dTimeMilli << endl;
             // Add time it took to press the key to the end of a double vector
-            _vdTimeMilli.push_back(_dTimeMilli);
+            _vdTimeMilli.push_back(dTimeMilli);
             if (sCatOrDog == "cat") { // If the image was a cat
                 // Record the image name at the end of the string vector of correct answers
                 _vsCorrectImageID.push_back(sImageID);
@@ -190,16 +191,16 @@ void Game::ClassifyImage(string sCatOrDog, string sImageID) {
                 cout << "Wrong answer" << endl;
             }
         }
-        else if (_k == 100) { // If key "d" is pressed
+        else if (k == 100) { // If key "d" is pressed
             cout << "Dog" << endl;
             _bGetCorrectKey = true;
             // Stop counting time
-            _tm.stop();
+            tm.stop();
             // Record time it took to press the key
-            _dTimeMilli = _tm.getTimeMilli();
-            cout << "Milli: "  << _dTimeMilli << endl;
+            dTimeMilli = tm.getTimeMilli();
+            cout << "Milli: "  << dTimeMilli << endl;
             // Add time it took to press the key to the end of a double vector
-            _vdTimeMilli.push_back(_dTimeMilli);
+            _vdTimeMilli.push_back(dTimeMilli);
             if (sCatOrDog == "cat") { // If the image was a cat
                 // Record the image name at the end of the string vector of wrong answers
                 _vsWrongImageID.push_back(sImageID);
@@ -220,23 +221,26 @@ void Game::ClassifyImage(string sCatOrDog, string sImageID) {
 
 // Calculate average time it took the user to classify the image
 double Game::CalculateAvgTime() {
+
     // OLD way to do a for loop
     /*
     for(int i = 0; i < _vdTimeMilli.size(); i++) {
-        _dTotalTimeMilli += _vdTimeMilli[i];
+        dTotalTimeMilli += _vdTimeMilli[i];
     }
     */
+
+    double dTotalTimeMilli = 0.0; // Total time system was idle waiting for key presses
 
     // Using iterator it to iterate through vector
     // http://www.cplusplus.com/reference/vector/vector/begin/
     for (std::vector<double>::iterator it = _vdTimeMilli.begin(); it != _vdTimeMilli.end(); ++it) {
         // Add up total time for all key presses
-        _dTotalTimeMilli += *it;
+        dTotalTimeMilli += *it;
     }
 
     // Find average time
-    _dAvgTimeMilli = _dTotalTimeMilli / _vdTimeMilli.size();
-    return _dAvgTimeMilli;
+    double dAvgTimeMilli = dTotalTimeMilli / _vdTimeMilli.size(); // Average time it took to press a key
+    return dAvgTimeMilli;
 }
 
 void Game::CountCorrectAndWrongClassifications() {
