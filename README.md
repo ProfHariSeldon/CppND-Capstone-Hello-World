@@ -4,7 +4,7 @@ This project was forked from a starter repo for the Capstone project in the [Uda
 
 The project files came from this website and were then modified by me: https://berak.github.io/smallfry/transfer.html (a .cpp file, caffemodel, prototxt, and dog and cat pictures).
 
-The Capstone Project gave me a chance to learn how to build a package (OpenCV) from source, add that package to the ldconfig path manually (automatically failed), set up a CMakeLists.txt file to get cmake to utilize OpenCV, and set up settings.json and launch.json files to get Visual Studio Code #include to find OpenCV and run the .cpp file. This project will become an important part of my portfolio to share with current and future colleagues and employers because my programming job may involve artificial intelligence.
+The Capstone Project gave me a chance to learn how to build a package (OpenCV) from source, add that package to the ldconfig path manually (because doing so automatically failed), set up a CMakeLists.txt file to get cmake to utilize OpenCV, and set up settings.json and launch.json files to get Visual Studio Code #include to find OpenCV and run the .cpp file. This project will become an important part of my portfolio to share with current and future colleagues and employers because my programming job may involve artificial intelligence such as OpenCV.
 
 In this project, I built my own C++ application starting with this repo, following the principles I have learned throughout this Nanodegree Program. This project demonstrated that I can independently create applications using a wide range of C++ features.
 
@@ -47,8 +47,8 @@ There are two blocks of cat and dog pictures.  Those ending in 0-499 and those e
   * Mac: [Install OpenCV 4.0 on Mac](https://www.learnopencv.com/install-opencv-4-on-macos/) - [Code](https://github.com/spmallick/learnopencv/blob/master/InstallScripts/installOpenCV-4-macos.sh)
   * Windows: [Install OpenCV 4.0 on Windows](https://www.learnopencv.com/install-opencv-4-on-windows/) - [Code](https://github.com/spmallick/learnopencv/tree/master/InstallScripts/Windows-4)
 * squeezenet v1.1
-  * squeezenet_v1.1.caffemodel in top level GitHub project directory or [Download](https://raw.githubusercontent.com/DeepScale/SqueezeNet/b5c3f1a23713c8b3fd7b801d229f6b04c64374a5/SqueezeNet_v1.1/squeezenet_v1.1.caffemodel)
-  * squeezenet_v1.1.prototxt in top level GitHub project directory or [Download](https://raw.githubusercontent.com/opencv/opencv_extra/master/testdata/dnn/squeezenet_v1.1.prototxt)
+  * squeezenet_v1.1.caffemodel is already in this GitHub project src directory or [Download](https://raw.githubusercontent.com/DeepScale/SqueezeNet/b5c3f1a23713c8b3fd7b801d229f6b04c64374a5/SqueezeNet_v1.1/squeezenet_v1.1.caffemodel)
+  * squeezenet_v1.1.prototxt is already in this GitHub project src directory or [Download](https://raw.githubusercontent.com/opencv/opencv_extra/master/testdata/dnn/squeezenet_v1.1.prototxt)
 
 ## Installation instructions for OpenCV 4 on Ubuntu 20.04 LTS
 
@@ -97,6 +97,7 @@ Create opencv.conf in /etc/ld.so.conf.d/ and insert:
 # https://answers.opencv.org/question/136182/installation-of-opencv-in-a-local-directory-in-ubuntu-1604/
 ```
 
+Use -v to double-check that ldconfig now has "/home/tlroot/installation/OpenCV-master/lib:"
 ```
 $ sudo ldconfig -v
 ```
@@ -104,13 +105,14 @@ $ sudo ldconfig -v
 ## Basic Build Instructions
 
 1. git clone https://github.com/ProfHariSeldon/CppND-Capstone-Hello-World.git
-2. Check that squeezenet_v1.1.caffemodel, squeezenet_v1.1.prototxt, and CMakeLists.txt are in top level GitHub project directory.
-3. Check that launch.json and settings.json are in ./.vscode directory
-4. Check that make, cmake, gcc/g++, and Visual Studio Code are installed.  Install them if not installed.
-5. Install Open CV 4 (see above section)
-6. Make a build directory in the top level directory: `mkdir build && cd build`
-7. Compile: `cmake .. && make`
-8. Run it: `./classifier`.
+2. Check that CMakeLists.txt is in top level GitHub project directory.
+3. Check that squeezenet_v1.1.caffemodel and squeezenet_v1.1.prototxt are in src directory.
+4. Check that launch.json and settings.json are in ./.vscode directory.
+5. Check that make, cmake, gcc/g++, and Visual Studio Code are installed.  Install them if not installed.
+6. Install Open CV 4 (see above section)
+7. Make a build directory in the top level directory: `mkdir build && cd build`
+8. Compile: `cmake .. && make`
+9. Run it: `./classifier`.
 
 ## How I got this repo's resources
 
@@ -126,12 +128,12 @@ Download this cpp file: https://gist.github.com/berak/70bcf5e8240c4af4426f9eff3f
 
 Download: https://raw.githubusercontent.com/DeepScale/SqueezeNet/b5c3f1a23713c8b3fd7b801d229f6b04c64374a5/SqueezeNet_v1.1/squeezenet_v1.1.caffemodel
 
-Download: https://github.com/opencv/opencv_extra/blob/master/testdata/dnn/squeezenet_v1.1.prototxt
+Download: https://raw.githubusercontent.com/opencv/opencv_extra/master/testdata/dnn/squeezenet_v1.1.prototxt
 
 cd OUTSIDE of /home/tlroot/Documents/C++/Capstone/CppND-Capstone-Hello-World
 Git clone https://github.com/yoggasek/Train_Data.git
 Delete create_csv.py it is not needed.
-Combine cat and dog folders into cat-dog folder.  The cpp Convolutional Neural Network will sort names lexically to separate the dog and cat pictures instead of having them in separate folders.
-Move the cat-dog folder into /home/tlroot/Documents/C++/Capstone/CppND-Capstone-Hello-World
+Combine cat and dog folders into images folder.  The cpp Convolutional Neural Network will sort names lexically to separate the dog and cat pictures instead of having them in separate folders.
+Move the images folder into /home/tlroot/Documents/C++/Capstone/CppND-Capstone-Hello-World
 
 I created my own CMakeLists.txt, settings.json, and launch.json

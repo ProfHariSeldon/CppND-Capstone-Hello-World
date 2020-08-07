@@ -19,11 +19,8 @@
     using namespace std;
 
     // TL CODE 1 START
-    // WARNING: do not #include "game.cpp" that causes multiple definitions of Game::Run()
-    #include "game.h"
-
-    // Below might be needed for converting _iRNtestSet to string using to_string and .compare
-    #include <string> 
+    // WARNING: do not #include "game.cats.vs.dogs.cpp" that causes multiple definitions of Game::Run()
+    #include "game.cats.vs.dogs.h"
     // TL CODE 1 END
 
     int main(int argc, char** argv)
@@ -175,9 +172,9 @@
         */
         
         // TL CODE 2 START
-        int iTest = 11;
-        cout << "Test add int to end of string: " + to_string(iTest) << endl;
-        Game manualClassification;
+        // This is a user image classification game
+        CatsVsDogs manualClassification;
+        // Run user image classification game
         manualClassification.Run();
         // TL CODE 2 END
         return 0;

@@ -1,5 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/classifier.dir/src/cats.vs.dogs.cpp.o"
+  "CMakeFiles/classifier.dir/src/game.cats.vs.dogs.cpp.o"
   "CMakeFiles/classifier.dir/src/game.cpp.o"
   "classifier"
   "classifier.pdb"
