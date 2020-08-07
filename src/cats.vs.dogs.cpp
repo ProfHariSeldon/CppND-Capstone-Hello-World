@@ -4,9 +4,9 @@
 // Extended by Thomas H. Lipscomb: https://github.com/ProfHariSeldon/
 // All comments with "TL:" are comments added by Thomas H. Lipscomb to berak's code to show that I understand it
 
-// TL: cats.vs.dogs.cpp uses transfer learning, that is: use an existing, pretrained model, (squeezenet) and try to teach it some new tricks
-// TL: squeezenet was trained on millions of images (imagenet), among them cats & dogs.
-// TL: squeezenet has 67 layers
+// TL: cats.vs.dogs.cpp uses transfer learning, that is: use an existing, pretrained model, (SqueezeNet) and try to teach it some new tricks
+// TL: SqueezeNet was trained on millions of images (ImageNet), among them cats & dogs.
+// TL: SqueezeNet is a Convolutional Neural Network that has 67 layers
 // TL: https://berak.github.io/smallfry/transfer.html
 // TL: The structure of the neural network is stored as a .prototxt file
 // TL: The weights of the layers of the neural network are stored as a .caffemodel file
@@ -25,15 +25,18 @@
 
     int main(int argc, char** argv)
     {
-        // COMMENT OUT TO TEST USER IMAGE CLASSIFICATION ONLY
-        /*
+        // TL CODE 2 START
+        cout << "AI DOG CAT IMAGE CLASSIFICATION (SQUEEZENET CNN):" << endl;
+        // TL CODE 2 END
+
         vector<String> fn;
         // ORIGINAL CODE:
         // glob("c:/data/cat-dog/*.jpg", fn, true);
-        // MY CODE:
+        // TL CODE 3 START
         // TL: fill string vector fn with the names of the cat and dog pictures, recursively
         // TL: https://docs.opencv.org/3.4/dc/dfa/namespacecv_1_1utils_1_1fs.html#a4ad0cea222ba9846c8b78afedf5832cf
         glob("../images/*.jpg", fn, true);
+        // TL CODE 3 END
         // glob() will conveniently sort names lexically, so the cats come first!
         // so we have 700 cats, 699 dogs, and split it into:
         // 100 test cats
@@ -43,11 +46,11 @@
 
         // ORIGINAL CODE:
         // std::string modelTxt = "c:/data/mdl/squeezenet/deploy.prototxt";
-        // TL CODE:
+        // TL CODE 4:
         std::string modelTxt = "../src/squeezenet_v1.1.prototxt";
         // ORIGINAL CODE:
         // std::string modelBin = "c:/data/mdl/squeezenet/squeezenet_v1.1.caffemodel";
-        // TL CODE:
+        // TL CODE 5:
         std::string modelBin = "../src/squeezenet_v1.1.caffemodel";
         // TL: create an OpenCV neural network "net".  Load in the structure (squeezenet_v1.1.prototxt) and load in the weights (squeezenet_v1.1.caffemodel)
         // TL: https://github.com/opencv/opencv/blob/master/modules/dnn/include/opencv2/dnn/dnn.hpp
@@ -139,7 +142,7 @@
     
         // ORIGINAL CODE:
         // cout << train.size() << " " << labels.size() << " " << test.size() << endl;
-        // TL CODE:
+        // TL CODE 6:
         cout << "train.size(): " << train.size() << " " << "labels.size(): " << labels.size() << " " << "test.size(): " << test.size() << endl;
         // TL: Trains the statistical model on train array with one-hot encoded labels for our ann
         // TL: train is InputArray samples "training samples"
@@ -167,15 +170,15 @@
         float accuracy = (correct_cat + correct_dog) / 200;
         // ORIGINAL CODE:
         // cout << correct_cat << " " << correct_dog << " : " << accuracy << endl;
-        // TL CODE:
+        // TL CODE 7:
         cout << "Correct Cat: " << correct_cat << " " << "Correct Dog: " << correct_dog << " : " << "Accuracy: " << accuracy << endl;
-        */
+        cout << endl;
         
-        // TL CODE 2 START
+        // TL CODE 8 START
         // This is a user image classification game
         CatsVsDogs manualClassification;
         // Run user image classification game
         manualClassification.Run();
-        // TL CODE 2 END
+        // TL CODE 8 END
         return 0;
     }
