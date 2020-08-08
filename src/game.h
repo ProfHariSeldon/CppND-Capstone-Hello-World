@@ -32,7 +32,7 @@ public:
 
     bool _bGameRunning; // Starts out True, game continues while True, game stops when False
     string CoinFlip(string sHeads, string sTails); // If heads return "cat" if tails return "dog"
-    int RandomImage(int iWidth, int iStart); // Choose a random Cat or Dog image from what I believe is the test set
+    int RandomImage(int iWidth, int iStart); // Choose a random Cat or Dog image from (1000-1199)
     string LoadImage(string sHeadsOrTails, int iImageID); // Show Cat or Dog image and return image filename
     void ClassifyImage(string sHeadsOrTails, string sImageID, char cHeadsKey, string sHeads, char cTailsKey, string sTails); // User presses c to classify image as cat, d to classify image as dog, q to quit
     double CalculateAvgTime(); // Calculate average time it took the user to classify the image

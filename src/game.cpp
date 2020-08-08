@@ -20,9 +20,9 @@
 using namespace cv;
 using namespace std;
 
+// Constructor
 Game::Game()
 {
-    // Constructor
     _bGameRunning = true; // Starts out True, game continues while True, game stops when False
     _iCorrectHeads = 0; // Number of correctly classified cats
     _iCorrectTails = 0; // Number of correctly classified dogs
@@ -214,4 +214,6 @@ void Game::CountCorrectAndWrongClassifications(string sHeads, string sTails) {
     }
     cout << "Incorrectly classified " + sHeads + ":" << _iWrongHeads << endl;
     cout << "Incorrectly classified " + sTails + ":" << _iWrongTails << endl;
+
+    cout << "Accuracy " << (double)(_iCorrectHeads+_iCorrectTails)/(double)(_iCorrectHeads+_iCorrectTails+_iWrongHeads+_iWrongTails) << endl;
 }

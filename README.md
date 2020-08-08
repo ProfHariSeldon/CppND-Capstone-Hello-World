@@ -1,35 +1,82 @@
-# CPPND: Capstone Hello World Repo Fork modified to be a Convolutional Neural Netowrk image classifier distinguishing cats and dogs
+# CPPND: Capstone Hello World Repo Fork modified to import a Convolutional Neural Network image classifier distinguishing cats and dogs, to which I added a manual image classification game
 
-This project was forked from a starter repo for the Capstone project in the [Udacity C++ Nanodegree Program](https://www.udacity.com/course/c-plus-plus-nanodegree--nd213), however nothing in that starter repo was relevant to creating an image classifier so nothing of the starter repo remains.
+OVERVIEW
+--------
 
-The project files came from this website and were then modified by me: https://berak.github.io/smallfry/transfer.html (a .cpp file, caffemodel, prototxt, and dog and cat pictures).
+This is my Capstone project for online course [Udacity C++ Nanodegree Program](https://www.udacity.com/course/c-plus-plus-nanodegree--nd213).  The purpose of the Capstone project is for the student to undertake an independent project.
 
-The Capstone Project gave me a chance to learn how to build a package (OpenCV) from source, add that package to the ldconfig path manually (because doing so automatically failed), set up a CMakeLists.txt file to get cmake to utilize OpenCV, and set up settings.json and launch.json files to get Visual Studio Code #include to find OpenCV and run the .cpp file. This project will become an important part of my portfolio to share with current and future colleagues and employers because my programming job may involve artificial intelligence such as OpenCV.
+For my Capstone project I ............. found, extended it, results into a game.  because my programming job may involve artificial intelligence such as OpenCV.
 
-In this project, I built my own C++ application starting with this repo, following the principles I have learned throughout this Nanodegree Program. This project demonstrated that I can independently create applications using a wide range of C++ features.
+I created a manual image classification game by extending the cats.vs.dogs project ..... yadditions to cats.vs.dogs.cpp
+
+
+Technologies I used or programmed
+
+C++
+class
+subclass
+methods
+constructor
+
+CMake
+CMakeLists.txt, 
+
+OpenCV
+Installed OpenCV in Ubuntu 20.04 LTS
+The Capstone Project gave me a chance to learn how to build a package (OpenCV) from source, add that package to thae ldconfig path manually (because doing so automatically failed), set up a CMakeLists.txt file to get cmake to utilize OpenCV, and set up settings.json and launch.json files to get Visual Studio Code #include to find OpenCV and run the .cpp file. 
+count
+keystokes
+
+VS
+settings.json
+launch.json,
+
+GIT
+fork (GitHub)
+git add .
+rn
+mv
+rm
+
+
+Where to find my code:
+* I created ./CMakeLists.txt, ./.json/launch.json, and settings.json
+* reating game.cpp, game.h. game.cats.vs.dogs.cpp, and game.cats.vs.dogs.h
+* I added comments to cats.vs.dogs.cpp to explain how the code author (berak) used an artificial intelligence to classify cat and dog imagesa
+* I added a Run() command to the end of main() in cats.vs.dogs.cpp to run the manual image classification game
+
+
+
+DETAILS OF PROJECT DEVELOPMENT
+------------------------------
 
 There are two blocks of cat and dog pictures.  Those ending in 0-499 and those ending in 1000-1199.  At the moment I am not sure which become the training set and which become the test set.
 
-## The image classifier GitHub projects I investigated before settling on https://berak.github.io/smallfry/transfer.html
+This project was forked from a starter repo for the Capstone project in the , however nothing in that starter repo was relevant to creating an image classifier so nothing of the starter repo remains.
 
-* https://github.com/bennyfri/TFMacCpp
-  * A Convolutional Neural Network image classifier (that distinguishes dog and cat pictures) using Tensorflow 2.0 and has instructions for how to get it working on a Mac (I am using Ubuntu 20.04 LTS not Mac).  TensorFlow 2.0 has Python binary install files but not C++ binary install files so TensorFlow 2.0 for C++ has to be built from source.  TensorFlow has to be added to the path in CMakeLists.txt, settings.json, and when building from source in a "nonstandard" directory like /home/tlroot/ ```$ sudo ldconfig``` does not work.  At the time I had not figured out how to get ldconfig working.  Later I did but by then I was using https://berak.github.io/smallfry/transfer.html not TFMacCpp.  I asked questions about how to get TFMacCpp working on two forums:
+The project files came from this website and were then modified by me: https://berak.github.io/smallfry/transfer.html (cats.vs.dogs.cpp, caffemodel, prototxt, and dog and cat pictures).
+
+
+## I investigated 4 image classifier GitHub projects before settling on #5
+
+1. https://github.com/bennyfri/TFMacCpp
+  * A Convolutional Neural Network image classifier (that distinguishes dog and cat pictures) using Tensorflow 2.0 and has instructions for how to get it working on a Mac (I am using Ubuntu 20.04 LTS not Mac).  At the time, TensorFlow 2.0 had Python binary install files but not C++ binary install files so TensorFlow 2.0 for C++ had to be built from source.  TensorFlow has to be added to the path in CMakeLists.txt, settings.json, and when building from source in a "nonstandard" directory like /home/tlroot/ ```$ sudo ldconfig``` does not work.  At the time I had not figured out how to get ldconfig working.  Later I did but by then I was using https://berak.github.io/smallfry/transfer.html not TFMacCpp.  I asked questions about how to get TFMacCpp working on two forums:
   * https://stackoverflow.com/questions/62882248/problem-installing-tensorflow-for-visual-studio-code-c-project-in-ubuntu-18-04
   * https://github.com/tensorflow/tensorflow/issues/41533
 
-* https://github.com/sjhalayka/opencv_ann_image_cat_dog
+2. https://github.com/sjhalayka/opencv_ann_image_cat_dog
   * A Artificial Neural Network image classifier (that distinguishes dog and cat pictures) using OpenCV, however it is not purely C++ it has ann_image.py and get_files.py.
 
-* https://github.com/huunhan312/convNet
-  * A Convolutional Neural Network (using OpenCV) but ```#include "cnpy.h"``` cannot find the .h file and this code does not classify images out of the box (for example the GitHub page has no images, it is unclear which part of the code is the image classifier, and it is unclear which part of the code returns the results of the image classification).
+3. https://github.com/huunhan312/convNet
+  * A Convolutional Neural Network (using OpenCV) but there is no cnpy.h file in the GitHub project for ```#include "cnpy.h"``` to find and this code does not classify images out of the box (for example the GitHub page has no images, it is unclear which part of the code is the image classifier, and it is unclear which part of the code returns the results of the image classification).
 
-* https://github.com/yirgagithub/Cat-and-Dog-SVM-classifier
+4. https://github.com/yirgagithub/Cat-and-Dog-SVM-classifier
   * This Support Vector Machine image classifier (that distinguishes dog and cat pictures) was so old that it had 10 lines of deprecated OpenCV code which I asked for advice (link below) on how to fix (I did not have time to take a course on OpenCV) at the link below:
   * https://answers.opencv.org/question/232940/help-updating-10-lines-of-deprecated-opencv-code-in-c/
   * Fortunately a user on that forum pointed me towards an image classifier that was not deprecated: https://berak.github.io/smallfry/transfer.html
 
-* https://berak.github.io/smallfry/transfer.html
-  * The code I settled on it is a Convolutional Neural Network image classifier distingusinging cats and dogs using OpenCV 4.
+5. https://berak.github.io/smallfry/transfer.html
+  * The code I settled on it is a C++ Convolutional Neural Network image classifier distingusinging cats and dogs using OpenCV 4.
 
 ## Dependencies for Running Locally
 * cmake >= 3.16.3
