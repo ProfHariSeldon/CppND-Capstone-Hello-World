@@ -1,66 +1,61 @@
-# CPPND: Capstone Hello World Repo Fork modified to import a Convolutional Neural Network image classifier distinguishing cats and dogs, to which I added a manual image classification game
+# CPPND: Capstone Hello World Repo Fork modified to import a Convolutional Neural Network (SqueezeNet) image classifier distinguishing cats and dogs, to which I added a manual image classification game
 
-OVERVIEW
---------
+## OVERVIEW
 
-This is my Capstone project for online course [Udacity C++ Nanodegree Program](https://www.udacity.com/course/c-plus-plus-nanodegree--nd213).  The purpose of the Capstone project is for the student to undertake an independent project.
+This is my Capstone project for the online course [Udacity C++ Nanodegree Program](https://www.udacity.com/course/c-plus-plus-nanodegree--nd213) forked from https://github.com/udacity/CppND-Capstone-Hello-World.  The purpose of the Capstone project is for the student to undertake an independent project.  I chose to do an image classification project because my programming job may involve artificial intelligence such as OpenCV.
 
-For my Capstone project I ............. found, extended it, results into a game.  because my programming job may involve artificial intelligence such as OpenCV.
+For my Capstone project I found a Convolutional Neural Network (SqueezeNet) AI image classifier cats.vs.dogs.cpp, learned how it worked and added comments to explain how it worked, and added a manual image classification game to it.
 
-I created a manual image classification game by extending the cats.vs.dogs project ..... yadditions to cats.vs.dogs.cpp
+### Technologies I used or programmed
 
+#### C++
+* class Game
+* subclass CatsVsDogs
+* constructor Game
+* methods in game.cpp and game.cats.vs.dogs.cpp
+* public variable _bGameRunning in game.h shared between game.cpp and game.cats.vs.dogs.cpp
+* public methods in game.h used in game.cats.vs.dogs.cpp
+* private variables in game.h
 
-Technologies I used or programmed
+#### CMake
+* Created ./CMakeLists.txt and got it to utilize OpenCV 4
 
-C++
-class
-subclass
-methods
-constructor
-
-CMake
-CMakeLists.txt, 
-
-OpenCV
-Installed OpenCV in Ubuntu 20.04 LTS
-The Capstone Project gave me a chance to learn how to build a package (OpenCV) from source, add that package to thae ldconfig path manually (because doing so automatically failed), set up a CMakeLists.txt file to get cmake to utilize OpenCV, and set up settings.json and launch.json files to get Visual Studio Code #include to find OpenCV and run the .cpp file. 
+#### OpenCV 4
+* Installed OpenCV 4 from source in Ubuntu 20.04 LTS
+* Manually added OpenCV 4 to ldconfig by creating /etc/ld.so.conf.d/opencv.conf
+The Capstone Project gave me a chance to learn how to build a package (OpenCV 4) from source, add that package to thae ldconfig path manually (because doing so automatically failed), set up a CMakeLists.txt file to get cmake to utilize OpenCV 4, and set up settings.json and launch.json files to get Visual Studio Code #include to find OpenCV 4 and run the .cpp file. 
 count
 keystokes
 
-VS
-settings.json
-launch.json,
+#### Visual Studio Code
+* ./.vscode/settings.json added OpenCV 4 to includePath so that Visual Studio Code can find OpenCV dependencies
+* ./.vscode/launch.json
 
-GIT
-fork (GitHub)
-git add .
-rn
-mv
-rm
+#### GIT
+* fork (GitHub) # fork CPPND: Capstone Hello World project
+* git rm -r . # delete hello world program from project
+* git add . # manually add (basically fork) cats.vs.dogs.cpp and cat-dog images folder to project
+* git rn cat-dog images # rename cat-dog images folder to images folder
+* git mv # move .cpp files, .h files, squeezenet_v1.1.caffemodel, and squeezenet_v1.1.prototxt to src directory
 
+### Where to find my code:
+* Created ./CMakeLists.txt, ./.vscode/launch.json, and ./.vscode/settings.json
+* Created ./src/game.cpp, ./src/game.h, ./src/game.cats.vs.dogs.cpp, and ./src/game.cats.vs.dogs.h
+* Added comments to ./src/cats.vs.dogs.cpp to explain how the code author (berak) used an artificial intelligence to classify cat and dog images
+* Added a Run() command to the end of main() in ./src/cats.vs.dogs.cpp to run the manual image classification game
 
-Where to find my code:
-* I created ./CMakeLists.txt, ./.json/launch.json, and settings.json
-* reating game.cpp, game.h. game.cats.vs.dogs.cpp, and game.cats.vs.dogs.h
-* I added comments to cats.vs.dogs.cpp to explain how the code author (berak) used an artificial intelligence to classify cat and dog imagesa
-* I added a Run() command to the end of main() in cats.vs.dogs.cpp to run the manual image classification game
+## DETAILS OF PROJECT DEVELOPMENT
 
+This project was forked from the starter repo https://github.com/udacity/CppND-Capstone-Hello-World, however nothing in that starter repo was relevant to creating an image classifier so nothing of the starter repo remains.
 
+These project code files (cats.vs.dogs.cpp, squeezenet_v1.1.caffemodel, squeezenet_v1.1.prototxt) came from this website: https://berak.github.io/smallfry/transfer.html.  I added comments and added a manual image classification game to cats.vs.dogs.cpp.  The dog and cat pictures came from https://github.com/yoggasek/Train_Data.
 
-DETAILS OF PROJECT DEVELOPMENT
-------------------------------
+There are two blocks of cat and dog pictures.  Those ending in 0-499 and those ending in 1000-1199.  The training set is images ending in 0-99 and the test set is images ending in 100-499 and 1000-1199.  The training set is not large because this Convolutional Neural Network (SqueezeNet) was pretrained on millions of images (ImageNet), among them cats & dogs.
 
-There are two blocks of cat and dog pictures.  Those ending in 0-499 and those ending in 1000-1199.  At the moment I am not sure which become the training set and which become the test set.
-
-This project was forked from a starter repo for the Capstone project in the , however nothing in that starter repo was relevant to creating an image classifier so nothing of the starter repo remains.
-
-The project files came from this website and were then modified by me: https://berak.github.io/smallfry/transfer.html (cats.vs.dogs.cpp, caffemodel, prototxt, and dog and cat pictures).
-
-
-## I investigated 4 image classifier GitHub projects before settling on #5
+### I investigated 4 image classifier GitHub projects before settling on number 5
 
 1. https://github.com/bennyfri/TFMacCpp
-  * A Convolutional Neural Network image classifier (that distinguishes dog and cat pictures) using Tensorflow 2.0 and has instructions for how to get it working on a Mac (I am using Ubuntu 20.04 LTS not Mac).  At the time, TensorFlow 2.0 had Python binary install files but not C++ binary install files so TensorFlow 2.0 for C++ had to be built from source.  TensorFlow has to be added to the path in CMakeLists.txt, settings.json, and when building from source in a "nonstandard" directory like /home/tlroot/ ```$ sudo ldconfig``` does not work.  At the time I had not figured out how to get ldconfig working.  Later I did but by then I was using https://berak.github.io/smallfry/transfer.html not TFMacCpp.  I asked questions about how to get TFMacCpp working on two forums:
+  * A Convolutional Neural Network image classifier (that distinguishes dog and cat pictures) using Tensorflow 2.0 and has instructions for how to get it working on a Mac (I am using Ubuntu 20.04 LTS not Mac).  At the time, TensorFlow 2.0 had Python binary install files but not C++ binary install files so TensorFlow 2.0 for C++ had to be built from source.  TensorFlow has to be added to the path in CMakeLists.txt, settings.json, and when building from source in a "nonstandard" directory like /home/tlroot/ ```$ sudo ldconfig``` does not work.  At the time I had not figured out how to get ldconfig working.  After I gave up on this project option I did figure out how to manually add something to ldconfig (I manually added OpenCV 4 to ldconfig in project number 5).  While considering this project I asked questions about how to get TFMacCpp working on two forums:
   * https://stackoverflow.com/questions/62882248/problem-installing-tensorflow-for-visual-studio-code-c-project-in-ubuntu-18-04
   * https://github.com/tensorflow/tensorflow/issues/41533
 
@@ -78,7 +73,7 @@ The project files came from this website and were then modified by me: https://b
 5. https://berak.github.io/smallfry/transfer.html
   * The code I settled on it is a C++ Convolutional Neural Network image classifier distingusinging cats and dogs using OpenCV 4.
 
-## Dependencies for Running Locally
+### Dependencies for Running Locally
 * cmake >= 3.16.3
   * All OSes: [click here for installation instructions](https://cmake.org/install/)
 * make >= 4.2.1 (Linux, Mac), 3.81 (Windows)
@@ -97,9 +92,9 @@ The project files came from this website and were then modified by me: https://b
   * squeezenet_v1.1.caffemodel is already in this GitHub project src directory or [Download](https://raw.githubusercontent.com/DeepScale/SqueezeNet/b5c3f1a23713c8b3fd7b801d229f6b04c64374a5/SqueezeNet_v1.1/squeezenet_v1.1.caffemodel)
   * squeezenet_v1.1.prototxt is already in this GitHub project src directory or [Download](https://raw.githubusercontent.com/opencv/opencv_extra/master/testdata/dnn/squeezenet_v1.1.prototxt)
 
-## Installation instructions for OpenCV 4 on Ubuntu 20.04 LTS
+### Installation instructions for OpenCV 4 on Ubuntu 20.04 LTS
 
-OpenCV 4 needs to be installed before cmake works because this project's .cpp file uses OpenCV 4.
+OpenCV 4 needs to be installed before cmake works because cats.vs.dogs.cpp and game.cpp use OpenCV 4.
 
 Upgrade to Ubuntu 20.04 LTS:
 ```
@@ -117,26 +112,33 @@ $ sudo chmod +x ./installOpenCV-4-on-Ubuntu-18-04.sh
 $ sudo bash installOpenCV-4-on-Ubuntu-18-04.sh
 ```
 
-PROBLEM: adding OpenCV 4 to the path is harder than usual (possibly because I compiled it in /home/tlroot/ which might be nonstandard).
+#### PROBLEM:
+adding OpenCV 4 to the path is harder than usual (possibly because I compiled it in /home/tlroot/ which might be nonstandard).
 Usually (but not this time) do it this automatic way:
 ```
 $ sudo ldconfig
 ```
 Or this manual way:
 ```
-$ sudo -n /home/tlroot/installation/OpenCV-master/lib/
+$ sudo ldconfig -n /home/tlroot/installation/OpenCV-master/lib/
 ```
 https://linux.101hacks.com/unix/ldconfig/
-Or insert this manually:
-include /home/tlroot/installation/OpenCV-master/lib/
-into /etc/ld.so.conf
+Or insert the below lines manually into /etc/ld.so.conf:
 ```
-$ sudo ldconfig
+include /home/tlroot/installation/OpenCV-master/lib/
+include /home/tlroot/installation/OpenCV-master/include/opencv4/
+```
+
+Use -v to double-check that ldconfig now has "/home/tlroot/installation/OpenCV-master/lib:"
+```
+$ sudo ldconfig -v
 ```
 https://www.tutorialspoint.com/unix_commands/ldconfig.htm
+
 HOWEVER neither worked for me.
 
-SOLUTION from https://answers.opencv.org/question/136182/installation-of-opencv-in-a-local-directory-in-ubuntu-1604/:
+#### SOLUTION:
+From https://answers.opencv.org/question/136182/installation-of-opencv-in-a-local-directory-in-ubuntu-1604/:
 Create opencv.conf in /etc/ld.so.conf.d/ and insert:
 ```
 # OpenCV default configuration
@@ -149,11 +151,11 @@ Use -v to double-check that ldconfig now has "/home/tlroot/installation/OpenCV-m
 $ sudo ldconfig -v
 ```
 
-## Basic Build Instructions
+### Basic Build Instructions
 
 1. git clone https://github.com/ProfHariSeldon/CppND-Capstone-Hello-World.git
 2. Check that CMakeLists.txt is in top level GitHub project directory.
-3. Check that squeezenet_v1.1.caffemodel and squeezenet_v1.1.prototxt are in src directory.
+3. Check that squeezenet_v1.1.caffemodel and squeezenet_v1.1.prototxt are in ./src directory.
 4. Check that launch.json and settings.json are in ./.vscode directory.
 5. Check that make, cmake, gcc/g++, and Visual Studio Code are installed.  Install them if not installed.
 6. Install Open CV 4 (see above section)
@@ -161,7 +163,7 @@ $ sudo ldconfig -v
 8. Compile: `cmake .. && make`
 9. Run it: `./classifier`.
 
-## How I got this repo's resources
+### How I got this repo's resources
 
 If https://github.com/ProfHariSeldon/CppND-Capstone-Hello-World.git was cloned (step 1 of Basic Build Instructions) do not do the below:
 
@@ -180,7 +182,7 @@ Download: https://raw.githubusercontent.com/opencv/opencv_extra/master/testdata/
 cd OUTSIDE of /home/tlroot/Documents/C++/Capstone/CppND-Capstone-Hello-World
 Git clone https://github.com/yoggasek/Train_Data.git
 Delete create_csv.py it is not needed.
-Combine cat and dog folders into images folder.  The cpp Convolutional Neural Network will sort names lexically to separate the dog and cat pictures instead of having them in separate folders.
+Combine cat and dog folders into images folder.  The cats.vs.dogs.cpp Convolutional Neural Network will sort names lexically to separate the dog and cat pictures instead of having them in separate folders.
 Move the images folder into /home/tlroot/Documents/C++/Capstone/CppND-Capstone-Hello-World
 
 I created my own CMakeLists.txt, settings.json, and launch.json

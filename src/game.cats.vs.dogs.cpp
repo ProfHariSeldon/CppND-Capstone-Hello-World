@@ -29,8 +29,8 @@ void CatsVsDogs::Run() {
         // Flip a coin to choose to display either "cat" or "dog" image
         string sHeadsOrTails = Game::CoinFlip(sHeads, sTails);
 
-        // I believe the CNN test set is (0-100) and the CNN training set is (101-499, 1000-1199)
-        // Iterating through both 101-499 and 1000-1199 is hard just 1000-1199 is easier
+        // I believe the CNN test set is (0-99) and the CNN training set is (100-499, 1000-1199)
+        // Iterating through both 100-499 and 1000-1199 is hard just 1000-1199 is easier
         // Choose a random Cat or Dog image from (1000-1199), return that integer that is after "cat." or "dog." in the filename
         int iImageID = Game::RandomImage(200, 1000);
 

@@ -5,7 +5,7 @@
 // All comments with "TL:" are comments added by Thomas H. Lipscomb to berak's code to show that I understand it
 
 // TL: cats.vs.dogs.cpp uses transfer learning, that is: use an existing, pretrained model, (SqueezeNet) and try to teach it some new tricks
-// TL: SqueezeNet was trained on millions of images (ImageNet), among them cats & dogs.
+// TL: SqueezeNet was pretrained on millions of images (ImageNet), among them cats & dogs.
 // TL: SqueezeNet is a Convolutional Neural Network that has 67 layers
 // TL: https://berak.github.io/smallfry/transfer.html
 // TL: The structure of the neural network is stored as a .prototxt file
