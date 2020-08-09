@@ -1,21 +1,23 @@
-# C++ CPPND: Capstone Hello World Repo Fork modified to import a Convolutional Neural Network (SqueezeNet) image classifier distinguishing cats and dogs, to which I added a manual image classification game
+# C++ Capstone Project: I added a manual image classification game to a Convolutional Neural Network image classifier
 
 ## OVERVIEW
 
-This is my Capstone project for the online course [Udacity C++ Nanodegree Program](https://www.udacity.com/course/c-plus-plus-nanodegree--nd213) forked from https://github.com/udacity/CppND-Capstone-Hello-World.  The purpose of the Capstone project is for the student to undertake an independent project.  I chose to do an image classification project because my programming job may involve artificial intelligence such as OpenCV.
+This is my Capstone independent project for the online course [Udacity C++ Nanodegree Program](https://www.udacity.com/course/c-plus-plus-nanodegree--nd213) forked from https://github.com/udacity/CppND-Capstone-Hello-World.  I chose to do an image classification project because my programming job may involve artificial intelligence such as OpenCV.
 
-For my Capstone project I found a Convolutional Neural Network (SqueezeNet) AI image classifier cats.vs.dogs.cpp, added explanatory comments to the existing code, and added a manual image classification game to it.
+For my Capstone project I found a Convolutional Neural Network (SqueezeNet) Artificial Intelligence image classifier cats.vs.dogs.cpp, added explanatory comments to the existing code, and added a manual image classification game to it.  I placed the code in a fork of the https://github.com/udacity/CppND-Capstone-Hello-World repo.
 
 ### What I did
 
 #### My C++ programming
 * class Game
-* subclass CatsVsDogs
 * constructor Game
+* subclass CatsVsDogs
+* constructor CatsVsDogs
 * methods in ./src/game.cpp and ./src/game.cats.vs.dogs.cpp
 * public variable _bGameRunning in game.h shared between ./src/game.cpp and ./src/game.cats.vs.dogs.cpp
 * public methods in ./src/game.h used in ./src/game.cats.vs.dogs.cpp
 * private variables in ./src/game.h
+* private variables in ./src/game.cats.vs.dogs.h
 
 #### CMake
 * Created ./CMakeLists.txt and got it to utilize OpenCV 4
