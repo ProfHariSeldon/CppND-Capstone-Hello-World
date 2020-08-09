@@ -2,7 +2,7 @@
 
 #include "game.h"
 // The Udacity C++ Memory Management Chatbot creates a GUI, however that code is very complicated.
-// All I need to do is display dog and cat images and listen for keystrokes so that the user can play a game to see how fast they can classify images.
+// All I need to do is display dog and cat images and listen for key presses so that the user can play a game to see how fast they can classify images.
 // I found a tutorial (URL below) to use OpenCV to display images very easily.  The 3 #includes below are required to do this.
 // https://docs.opencv.org/2.4/doc/tutorials/introduction/display_image/display_image.html
 #include <opencv2/core/core.hpp>
@@ -104,11 +104,11 @@ void Game::ClassifyImage(string sHeadsOrTails, string sImageID, char cHeadsKey, 
 
     // Keep going until the user types q, c, or d
     while(bGetCorrectKey == false) {
-        double dTimeMilli; // How long it took to press a key
-        TickMeter tm; // Used to measure the time it took to press a key
+        double dTimeMilli; // How long it took for a key press
+        TickMeter tm; // Used to measure the time it took for a key press
         // Start counting time
         tm.start();
-        // wait for key input forever because is 0
+        // wait for key press forever because is 0
         // waitKey(0) is the int Decimal (DEC) value of the ASCII key: http://www.asciitable.com/
         char c = (char)waitKey(0); // Convert int aSCII Decimal to char (e.g. convert 113 to 'q')
         if (c == 'q') {  // If key "q" is pressed
