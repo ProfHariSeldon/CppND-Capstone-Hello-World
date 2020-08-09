@@ -1,21 +1,21 @@
-# CPPND: Capstone Hello World Repo Fork modified to import a Convolutional Neural Network (SqueezeNet) image classifier distinguishing cats and dogs, to which I added a manual image classification game
+# C++ CPPND: Capstone Hello World Repo Fork modified to import a Convolutional Neural Network (SqueezeNet) image classifier distinguishing cats and dogs, to which I added a manual image classification game
 
 ## OVERVIEW
 
 This is my Capstone project for the online course [Udacity C++ Nanodegree Program](https://www.udacity.com/course/c-plus-plus-nanodegree--nd213) forked from https://github.com/udacity/CppND-Capstone-Hello-World.  The purpose of the Capstone project is for the student to undertake an independent project.  I chose to do an image classification project because my programming job may involve artificial intelligence such as OpenCV.
 
-For my Capstone project I found a Convolutional Neural Network (SqueezeNet) AI image classifier cats.vs.dogs.cpp, learned how it worked and added comments to explain how it worked, and added a manual image classification game to it.
+For my Capstone project I found a Convolutional Neural Network (SqueezeNet) AI image classifier cats.vs.dogs.cpp, added explanatory comments to the existing code, and added a manual image classification game to it.
 
-### Technologies I used or programmed
+### What I did
 
-#### C++
+#### My C++ programming
 * class Game
 * subclass CatsVsDogs
 * constructor Game
-* methods in game.cpp and game.cats.vs.dogs.cpp
-* public variable _bGameRunning in game.h shared between game.cpp and game.cats.vs.dogs.cpp
-* public methods in game.h used in game.cats.vs.dogs.cpp
-* private variables in game.h
+* methods in ./src/game.cpp and ./src/game.cats.vs.dogs.cpp
+* public variable _bGameRunning in game.h shared between ./src/game.cpp and ./src/game.cats.vs.dogs.cpp
+* public methods in ./src/game.h used in ./src/game.cats.vs.dogs.cpp
+* private variables in ./src/game.h
 
 #### CMake
 * Created ./CMakeLists.txt and got it to utilize OpenCV 4
@@ -23,13 +23,13 @@ For my Capstone project I found a Convolutional Neural Network (SqueezeNet) AI i
 #### OpenCV 4
 * Installed OpenCV 4 from source in Ubuntu 20.04 LTS
 * Manually added OpenCV 4 to ldconfig by creating /etc/ld.so.conf.d/opencv.conf
-The Capstone Project gave me a chance to learn how to build a package (OpenCV 4) from source, add that package to thae ldconfig path manually (because doing so automatically failed), set up a CMakeLists.txt file to get cmake to utilize OpenCV 4, and set up settings.json and launch.json files to get Visual Studio Code #include to find OpenCV 4 and run the .cpp file. 
-count
-keystokes
+* I used OpenCV 4 to count the milliseconds between the image popping up and the next keystroke
+* I used OpenCV 4 to record the keystroke (c for cat, d for dog, q for quit, any other key do nothing)
+* HELP should I mention OpenCV 4 SqueezeNet CNN automatic image classification?
 
 #### Visual Studio Code
 * ./.vscode/settings.json added OpenCV 4 to includePath so that Visual Studio Code can find OpenCV dependencies
-* ./.vscode/launch.json
+* ./.vscode/launch.json modified to point to executable ./build/classifier
 
 #### GIT
 * fork (GitHub) # fork CPPND: Capstone Hello World project
@@ -41,8 +41,8 @@ keystokes
 ### Where to find my code:
 * Created ./CMakeLists.txt, ./.vscode/launch.json, and ./.vscode/settings.json
 * Created ./src/game.cpp, ./src/game.h, ./src/game.cats.vs.dogs.cpp, and ./src/game.cats.vs.dogs.h
-* Added comments to ./src/cats.vs.dogs.cpp to explain how the code author (berak) used an artificial intelligence to classify cat and dog images
 * Added a Run() command to the end of main() in ./src/cats.vs.dogs.cpp to run the manual image classification game
+* Added comments to ./src/cats.vs.dogs.cpp to explain how the code author (berak) used an artificial intelligence to classify cat and dog images
 
 ## DETAILS OF PROJECT DEVELOPMENT
 
@@ -113,45 +113,53 @@ $ sudo bash installOpenCV-4-on-Ubuntu-18-04.sh
 ```
 
 #### PROBLEM:
-adding OpenCV 4 to the path is harder than usual (possibly because I compiled it in /home/tlroot/ which might be nonstandard).
-Usually (but not this time) do it this automatic way:
-```
-$ sudo ldconfig
-```
-Or this manual way:
-```
-$ sudo ldconfig -n /home/tlroot/installation/OpenCV-master/lib/
-```
-https://linux.101hacks.com/unix/ldconfig/
-Or insert the below lines manually into /etc/ld.so.conf:
+Failure to add OpenCV 4 to the path [automatically](https://linux.101hacks.com/unix/ldconfig/) (```$ sudo ldconfig``` or ```$ sudo ldconfig -n /home/tlroot/installation/OpenCV-master/lib/```) or [manually](https://linux.101hacks.com/unix/ldconfig/) (insert the below lines manually into /etc/ld.so.conf).
 ```
 include /home/tlroot/installation/OpenCV-master/lib/
 include /home/tlroot/installation/OpenCV-master/include/opencv4/
 ```
 
-Use -v to double-check that ldconfig now has "/home/tlroot/installation/OpenCV-master/lib:"
+Use -v to double-check if ldconfig now has "/home/tlroot/installation/OpenCV-master/lib"
 ```
 $ sudo ldconfig -v
 ```
 https://www.tutorialspoint.com/unix_commands/ldconfig.htm
 
-HOWEVER neither worked for me.
-
 #### SOLUTION:
-From https://answers.opencv.org/question/136182/installation-of-opencv-in-a-local-directory-in-ubuntu-1604/:
-Create opencv.conf in /etc/ld.so.conf.d/ and insert:
+To successfully add OpenCV 4 to the path, create opencv.conf in /etc/ld.so.conf.d/ and insert:
 ```
 # OpenCV default configuration
 /home/tlroot/installation/OpenCV-master/lib/
-# https://answers.opencv.org/question/136182/installation-of-opencv-in-a-local-directory-in-ubuntu-1604/
 ```
+https://answers.opencv.org/question/136182/installation-of-opencv-in-a-local-directory-in-ubuntu-1604/
 
-Use -v to double-check that ldconfig now has "/home/tlroot/installation/OpenCV-master/lib:"
+Use -v to double-check that ldconfig now has "/home/tlroot/installation/OpenCV-master/lib"
 ```
 $ sudo ldconfig -v
 ```
+https://www.tutorialspoint.com/unix_commands/ldconfig.htm
 
-### Basic Build Instructions
+### How I got this repo's resources
+
+If https://github.com/ProfHariSeldon/CppND-Capstone-Hello-World.git was cloned (step 1 of Basic Build and Run Instructions below) do not do this section skip to Basic Build and Run Instructions:
+
+* Website that has the resources: https://berak.github.io/smallfry/transfer.html
+
+* ```$ cd /home/tlroot/Documents/C++/Capstone/CppND-Capstone-Hello-World```
+
+* Download this cpp file: https://gist.github.com/berak/70bcf5e8240c4af4426f9eff3f42121c#file-cats-vs-dogs-cpp
+* Download: https://raw.githubusercontent.com/DeepScale/SqueezeNet/b5c3f1a23713c8b3fd7b801d229f6b04c64374a5/SqueezeNet_v1.1/squeezenet_v1.1.caffemodel
+* Download: https://raw.githubusercontent.com/opencv/opencv_extra/master/testdata/dnn/squeezenet_v1.1.prototxt
+
+* cd OUTSIDE of /home/tlroot/Documents/C++/Capstone/CppND-Capstone-Hello-World
+* ```$ git clone https://github.com/yoggasek/Train_Data.git```
+* Delete create_csv.py it is not needed.
+* Combine cat and dog folders into images folder.  The cats.vs.dogs.cpp Convolutional Neural Network will sort names lexically to separate the dog and cat pictures instead of having them in separate folders.
+* Move the images folder into /home/tlroot/Documents/C++/Capstone/CppND-Capstone-Hello-World
+
+* I created my own CMakeLists.txt, settings.json, and launch.json
+
+### Basic Build and Run Instructions for this GitHub project
 
 1. git clone https://github.com/ProfHariSeldon/CppND-Capstone-Hello-World.git
 2. Check that CMakeLists.txt is in top level GitHub project directory.
@@ -159,30 +167,57 @@ $ sudo ldconfig -v
 4. Check that launch.json and settings.json are in ./.vscode directory.
 5. Check that make, cmake, gcc/g++, and Visual Studio Code are installed.  Install them if not installed.
 6. Install Open CV 4 (see above section)
-7. Make a build directory in the top level directory: `mkdir build && cd build`
+7. Enter build directory: `cd build`
 8. Compile: `cmake .. && make`
 9. Run it: `./classifier`.
-
-### How I got this repo's resources
-
-If https://github.com/ProfHariSeldon/CppND-Capstone-Hello-World.git was cloned (step 1 of Basic Build Instructions) do not do the below:
-
-Website that has the resources
-https://berak.github.io/smallfry/transfer.html
-
+10. Expect the following output:
 ```
-$ cd /home/tlroot/Documents/C++/Capstone/CppND-Capstone-Hello-World
+AI DOG CAT IMAGE CLASSIFICATION (SQUEEZENET CNN):
+train.size(): [1000 x 1199] labels.size(): [2 x 1199] test.size(): [1000 x 200]
+
+Correct Cat: 100 Correct Dog: 99 : Accuracy: 0.995
+
+USER IMAGE CLASSIFICATION GAME
+Instructions:
+Type c for cat
+Type d for dog
+Type q to Quit Game
+If you press any other key you must try again
 ```
-Download this cpp file: https://gist.github.com/berak/70bcf5e8240c4af4426f9eff3f42121c#file-cats-vs-dogs-cpp
 
-Download: https://raw.githubusercontent.com/DeepScale/SqueezeNet/b5c3f1a23713c8b3fd7b801d229f6b04c64374a5/SqueezeNet_v1.1/squeezenet_v1.1.caffemodel
+Each image that pops up adds the following output:
+Image filename, e.g.:
+```
+../images/cat.1006.jpg
+```
+Whether you classified the image as a cat or dog
+```
+Classified as: cat
+```
+Or:
+```
+Classified as: dog
+```
+Time in milliseconds it took for keystroke, e.g.:
+```
+Time (ms): 1497.6
+```
+Whether the image was classified correctly:
+```
+Correct answer
+```
+Or:
+```
+Wrong answer
+```
 
-Download: https://raw.githubusercontent.com/opencv/opencv_extra/master/testdata/dnn/squeezenet_v1.1.prototxt
-
-cd OUTSIDE of /home/tlroot/Documents/C++/Capstone/CppND-Capstone-Hello-World
-Git clone https://github.com/yoggasek/Train_Data.git
-Delete create_csv.py it is not needed.
-Combine cat and dog folders into images folder.  The cats.vs.dogs.cpp Convolutional Neural Network will sort names lexically to separate the dog and cat pictures instead of having them in separate folders.
-Move the images folder into /home/tlroot/Documents/C++/Capstone/CppND-Capstone-Hello-World
-
-I created my own CMakeLists.txt, settings.json, and launch.json
+When the user presses the q key to quit expect something like the following output:
+```
+Quit Game
+Average time in ms between c or d key presses: 9841.64
+Correctly classified cat:2
+Correctly classified dog:1
+Incorrectly classified cat:1
+Incorrectly classified dog:1
+Accuracy 0.6
+```
