@@ -4,9 +4,9 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/tlroot/Documents/C++/Capstone/CppND-Capstone-Hello-World/src/cats.vs.dogs.cpp" "/home/tlroot/Documents/C++/Capstone/CppND-Capstone-Hello-World/build/CMakeFiles/classifier.dir/src/cats.vs.dogs.cpp.o"
-  "/home/tlroot/Documents/C++/Capstone/CppND-Capstone-Hello-World/src/game.cats.vs.dogs.cpp" "/home/tlroot/Documents/C++/Capstone/CppND-Capstone-Hello-World/build/CMakeFiles/classifier.dir/src/game.cats.vs.dogs.cpp.o"
-  "/home/tlroot/Documents/C++/Capstone/CppND-Capstone-Hello-World/src/game.cpp" "/home/tlroot/Documents/C++/Capstone/CppND-Capstone-Hello-World/build/CMakeFiles/classifier.dir/src/game.cpp.o"
+  "/home/tlroot/Documents/C++/Capstone/CppND-Capstone-Image-Classifier-Game/src/cats.vs.dogs.cpp" "/home/tlroot/Documents/C++/Capstone/CppND-Capstone-Image-Classifier-Game/build/CMakeFiles/classifier.dir/src/cats.vs.dogs.cpp.o"
+  "/home/tlroot/Documents/C++/Capstone/CppND-Capstone-Image-Classifier-Game/src/game.cats.vs.dogs.cpp" "/home/tlroot/Documents/C++/Capstone/CppND-Capstone-Image-Classifier-Game/build/CMakeFiles/classifier.dir/src/game.cats.vs.dogs.cpp.o"
+  "/home/tlroot/Documents/C++/Capstone/CppND-Capstone-Image-Classifier-Game/src/game.cpp" "/home/tlroot/Documents/C++/Capstone/CppND-Capstone-Image-Classifier-Game/build/CMakeFiles/classifier.dir/src/game.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

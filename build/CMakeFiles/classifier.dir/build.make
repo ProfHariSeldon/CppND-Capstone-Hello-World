@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/tlroot/Documents/C++/Capstone/CppND-Capstone-Hello-World
+CMAKE_SOURCE_DIR = /home/tlroot/Documents/C++/Capstone/CppND-Capstone-Image-Classifier-Game
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/tlroot/Documents/C++/Capstone/CppND-Capstone-Hello-World/build
+CMAKE_BINARY_DIR = /home/tlroot/Documents/C++/Capstone/CppND-Capstone-Image-Classifier-Game/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/classifier.dir/depend.make
@@ -59,42 +59,42 @@ include CMakeFiles/classifier.dir/flags.make
 
 CMakeFiles/classifier.dir/src/cats.vs.dogs.cpp.o: CMakeFiles/classifier.dir/flags.make
 CMakeFiles/classifier.dir/src/cats.vs.dogs.cpp.o: ../src/cats.vs.dogs.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/tlroot/Documents/C++/Capstone/CppND-Capstone-Hello-World/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/classifier.dir/src/cats.vs.dogs.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/classifier.dir/src/cats.vs.dogs.cpp.o -c /home/tlroot/Documents/C++/Capstone/CppND-Capstone-Hello-World/src/cats.vs.dogs.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/tlroot/Documents/C++/Capstone/CppND-Capstone-Image-Classifier-Game/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/classifier.dir/src/cats.vs.dogs.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/classifier.dir/src/cats.vs.dogs.cpp.o -c /home/tlroot/Documents/C++/Capstone/CppND-Capstone-Image-Classifier-Game/src/cats.vs.dogs.cpp
 
 CMakeFiles/classifier.dir/src/cats.vs.dogs.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/classifier.dir/src/cats.vs.dogs.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/tlroot/Documents/C++/Capstone/CppND-Capstone-Hello-World/src/cats.vs.dogs.cpp > CMakeFiles/classifier.dir/src/cats.vs.dogs.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/tlroot/Documents/C++/Capstone/CppND-Capstone-Image-Classifier-Game/src/cats.vs.dogs.cpp > CMakeFiles/classifier.dir/src/cats.vs.dogs.cpp.i
 
 CMakeFiles/classifier.dir/src/cats.vs.dogs.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/classifier.dir/src/cats.vs.dogs.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/tlroot/Documents/C++/Capstone/CppND-Capstone-Hello-World/src/cats.vs.dogs.cpp -o CMakeFiles/classifier.dir/src/cats.vs.dogs.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/tlroot/Documents/C++/Capstone/CppND-Capstone-Image-Classifier-Game/src/cats.vs.dogs.cpp -o CMakeFiles/classifier.dir/src/cats.vs.dogs.cpp.s
 
 CMakeFiles/classifier.dir/src/game.cats.vs.dogs.cpp.o: CMakeFiles/classifier.dir/flags.make
 CMakeFiles/classifier.dir/src/game.cats.vs.dogs.cpp.o: ../src/game.cats.vs.dogs.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/tlroot/Documents/C++/Capstone/CppND-Capstone-Hello-World/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/classifier.dir/src/game.cats.vs.dogs.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/classifier.dir/src/game.cats.vs.dogs.cpp.o -c /home/tlroot/Documents/C++/Capstone/CppND-Capstone-Hello-World/src/game.cats.vs.dogs.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/tlroot/Documents/C++/Capstone/CppND-Capstone-Image-Classifier-Game/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/classifier.dir/src/game.cats.vs.dogs.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/classifier.dir/src/game.cats.vs.dogs.cpp.o -c /home/tlroot/Documents/C++/Capstone/CppND-Capstone-Image-Classifier-Game/src/game.cats.vs.dogs.cpp
 
 CMakeFiles/classifier.dir/src/game.cats.vs.dogs.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/classifier.dir/src/game.cats.vs.dogs.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/tlroot/Documents/C++/Capstone/CppND-Capstone-Hello-World/src/game.cats.vs.dogs.cpp > CMakeFiles/classifier.dir/src/game.cats.vs.dogs.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/tlroot/Documents/C++/Capstone/CppND-Capstone-Image-Classifier-Game/src/game.cats.vs.dogs.cpp > CMakeFiles/classifier.dir/src/game.cats.vs.dogs.cpp.i
 
 CMakeFiles/classifier.dir/src/game.cats.vs.dogs.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/classifier.dir/src/game.cats.vs.dogs.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/tlroot/Documents/C++/Capstone/CppND-Capstone-Hello-World/src/game.cats.vs.dogs.cpp -o CMakeFiles/classifier.dir/src/game.cats.vs.dogs.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/tlroot/Documents/C++/Capstone/CppND-Capstone-Image-Classifier-Game/src/game.cats.vs.dogs.cpp -o CMakeFiles/classifier.dir/src/game.cats.vs.dogs.cpp.s
 
 CMakeFiles/classifier.dir/src/game.cpp.o: CMakeFiles/classifier.dir/flags.make
 CMakeFiles/classifier.dir/src/game.cpp.o: ../src/game.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/tlroot/Documents/C++/Capstone/CppND-Capstone-Hello-World/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/classifier.dir/src/game.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/classifier.dir/src/game.cpp.o -c /home/tlroot/Documents/C++/Capstone/CppND-Capstone-Hello-World/src/game.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/tlroot/Documents/C++/Capstone/CppND-Capstone-Image-Classifier-Game/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/classifier.dir/src/game.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/classifier.dir/src/game.cpp.o -c /home/tlroot/Documents/C++/Capstone/CppND-Capstone-Image-Classifier-Game/src/game.cpp
 
 CMakeFiles/classifier.dir/src/game.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/classifier.dir/src/game.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/tlroot/Documents/C++/Capstone/CppND-Capstone-Hello-World/src/game.cpp > CMakeFiles/classifier.dir/src/game.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/tlroot/Documents/C++/Capstone/CppND-Capstone-Image-Classifier-Game/src/game.cpp > CMakeFiles/classifier.dir/src/game.cpp.i
 
 CMakeFiles/classifier.dir/src/game.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/classifier.dir/src/game.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/tlroot/Documents/C++/Capstone/CppND-Capstone-Hello-World/src/game.cpp -o CMakeFiles/classifier.dir/src/game.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/tlroot/Documents/C++/Capstone/CppND-Capstone-Image-Classifier-Game/src/game.cpp -o CMakeFiles/classifier.dir/src/game.cpp.s
 
 # Object files for target classifier
 classifier_OBJECTS = \
@@ -184,7 +184,7 @@ classifier: /home/tlroot/installation/OpenCV-master/lib/libopencv_photo.so.4.4.0
 classifier: /home/tlroot/installation/OpenCV-master/lib/libopencv_imgproc.so.4.4.0
 classifier: /home/tlroot/installation/OpenCV-master/lib/libopencv_core.so.4.4.0
 classifier: CMakeFiles/classifier.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/tlroot/Documents/C++/Capstone/CppND-Capstone-Hello-World/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable classifier"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/tlroot/Documents/C++/Capstone/CppND-Capstone-Image-Classifier-Game/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable classifier"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/classifier.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -197,6 +197,6 @@ CMakeFiles/classifier.dir/clean:
 .PHONY : CMakeFiles/classifier.dir/clean
 
 CMakeFiles/classifier.dir/depend:
-	cd /home/tlroot/Documents/C++/Capstone/CppND-Capstone-Hello-World/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/tlroot/Documents/C++/Capstone/CppND-Capstone-Hello-World /home/tlroot/Documents/C++/Capstone/CppND-Capstone-Hello-World /home/tlroot/Documents/C++/Capstone/CppND-Capstone-Hello-World/build /home/tlroot/Documents/C++/Capstone/CppND-Capstone-Hello-World/build /home/tlroot/Documents/C++/Capstone/CppND-Capstone-Hello-World/build/CMakeFiles/classifier.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/tlroot/Documents/C++/Capstone/CppND-Capstone-Image-Classifier-Game/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/tlroot/Documents/C++/Capstone/CppND-Capstone-Image-Classifier-Game /home/tlroot/Documents/C++/Capstone/CppND-Capstone-Image-Classifier-Game /home/tlroot/Documents/C++/Capstone/CppND-Capstone-Image-Classifier-Game/build /home/tlroot/Documents/C++/Capstone/CppND-Capstone-Image-Classifier-Game/build /home/tlroot/Documents/C++/Capstone/CppND-Capstone-Image-Classifier-Game/build/CMakeFiles/classifier.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/classifier.dir/depend
 

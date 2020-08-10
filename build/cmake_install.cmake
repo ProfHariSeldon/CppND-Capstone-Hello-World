@@ -1,4 +1,4 @@
-# Install script for directory: /home/tlroot/Documents/C++/Capstone/CppND-Capstone-Hello-World
+# Install script for directory: /home/tlroot/Documents/C++/Capstone/CppND-Capstone-Image-Classifier-Game
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/tlroot/Documents/C++/Capstone/CppND-Capstone-Hello-World/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/tlroot/Documents/C++/Capstone/CppND-Capstone-Image-Classifier-Game/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

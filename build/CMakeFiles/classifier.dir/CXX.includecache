@@ -6,27 +6,27 @@
 
 #IncludeRegexTransform: 
 
-/home/tlroot/Documents/C++/Capstone/CppND-Capstone-Hello-World/src/cats.vs.dogs.cpp
+/home/tlroot/Documents/C++/Capstone/CppND-Capstone-Image-Classifier-Game/src/cats.vs.dogs.cpp
 opencv2/opencv.hpp
-/home/tlroot/Documents/C++/Capstone/CppND-Capstone-Hello-World/src/opencv2/opencv.hpp
+/home/tlroot/Documents/C++/Capstone/CppND-Capstone-Image-Classifier-Game/src/opencv2/opencv.hpp
 opencv2/dnn.hpp
-/home/tlroot/Documents/C++/Capstone/CppND-Capstone-Hello-World/src/opencv2/dnn.hpp
+/home/tlroot/Documents/C++/Capstone/CppND-Capstone-Image-Classifier-Game/src/opencv2/dnn.hpp
 game.cats.vs.dogs.h
-/home/tlroot/Documents/C++/Capstone/CppND-Capstone-Hello-World/src/game.cats.vs.dogs.h
+/home/tlroot/Documents/C++/Capstone/CppND-Capstone-Image-Classifier-Game/src/game.cats.vs.dogs.h
 
-/home/tlroot/Documents/C++/Capstone/CppND-Capstone-Hello-World/src/game.cats.vs.dogs.cpp
+/home/tlroot/Documents/C++/Capstone/CppND-Capstone-Image-Classifier-Game/src/game.cats.vs.dogs.cpp
 game.cats.vs.dogs.h
-/home/tlroot/Documents/C++/Capstone/CppND-Capstone-Hello-World/src/game.cats.vs.dogs.h
+/home/tlroot/Documents/C++/Capstone/CppND-Capstone-Image-Classifier-Game/src/game.cats.vs.dogs.h
 iostream
 -
 
-/home/tlroot/Documents/C++/Capstone/CppND-Capstone-Hello-World/src/game.cats.vs.dogs.h
+/home/tlroot/Documents/C++/Capstone/CppND-Capstone-Image-Classifier-Game/src/game.cats.vs.dogs.h
 game.h
-/home/tlroot/Documents/C++/Capstone/CppND-Capstone-Hello-World/src/game.h
+/home/tlroot/Documents/C++/Capstone/CppND-Capstone-Image-Classifier-Game/src/game.h
 
-/home/tlroot/Documents/C++/Capstone/CppND-Capstone-Hello-World/src/game.cpp
+/home/tlroot/Documents/C++/Capstone/CppND-Capstone-Image-Classifier-Game/src/game.cpp
 game.h
-/home/tlroot/Documents/C++/Capstone/CppND-Capstone-Hello-World/src/game.h
+/home/tlroot/Documents/C++/Capstone/CppND-Capstone-Image-Classifier-Game/src/game.h
 opencv2/core/core.hpp
 -
 opencv2/highgui/highgui.hpp
@@ -42,7 +42,7 @@ opencv2/core/utility.hpp
 vector
 -
 
-/home/tlroot/Documents/C++/Capstone/CppND-Capstone-Hello-World/src/game.h
+/home/tlroot/Documents/C++/Capstone/CppND-Capstone-Image-Classifier-Game/src/game.h
 opencv2/core/mat.hpp
 -
 
