@@ -8,8 +8,8 @@
 // TL: SqueezeNet was pretrained on millions of images (ImageNet), among them cats & dogs.
 // TL: SqueezeNet is a Convolutional Neural Network that has 67 layers
 // TL: https://berak.github.io/smallfry/transfer.html
-// TL: The structure of the neural network is stored as a .prototxt file
-// TL: The weights of the layers of the neural network are stored as a .caffemodel file
+// TL: The structure of the neural network is stored in the squeezenet_v1.1.prototxt file
+// TL: The weights of the layers of the neural network are stored in the squeezenet_v1.1.caffemodel file
 // TL: https://subscription.packtpub.com/book/big_data_and_business_intelligence/9781789137750/4/ch04lvl1sec31/caffe-model-file-formats
 
     #include "opencv2/opencv.hpp"

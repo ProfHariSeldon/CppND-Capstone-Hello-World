@@ -6,6 +6,7 @@
 
 using namespace std;
 
+// Constructor
 CatsVsDogs::CatsVsDogs() {
     _cHeadsKey = 'c'; // Key press to classify image as cat
     _sHeads = "cat"; // Images starting with "cat" are cat images

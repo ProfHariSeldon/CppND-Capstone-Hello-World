@@ -12,23 +12,7 @@ using namespace std;
 class Game
 {
 public:
-    // Based on Vehicle.h in https://github.com/ProfHariSeldon/CppND-Program-a-Concurrent-Traffic-Simulation
-    // constructor / desctructor
-    Game();
-    /*
-    // Unique destructor not necessary
-    ~Game();
-
-    // getters / setters
-    void setCurrentStreet(std::shared_ptr<Street> street) { _currStreet = street; };
-    void setCurrentDestination(std::shared_ptr<Intersection> destination);
-
-    // typical behaviour methods
-    void simulate();
-
-    // miscellaneous
-    std::shared_ptr<Vehicle> get_shared_this() { return shared_from_this(); }
-    */
+    Game(); // Constructor
 
     bool _bGameRunning; // Starts out True, game continues while True, game stops when False
     string CoinFlip(string sHeads, string sTails); // If heads return "cat" if tails return "dog"
