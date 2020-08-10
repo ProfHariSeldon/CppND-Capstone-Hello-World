@@ -4,10 +4,10 @@
 
 This is my Capstone independent project for the online course [Udacity C++ Nanodegree Program](https://www.udacity.com/course/c-plus-plus-nanodegree--nd213).  I chose to do an image classification project because my programming job may involve artificial intelligence such as OpenCV.
 
-I found a Convolutional Neural Network (CNN) SqueezeNet Artificial Intelligence image classifier cats.vs.dogs.cpp, added explanatory comments to the existing code, and added a manual image classification game to it.  I placed the code in this fork of the https://github.com/udacity/CppND-Capstone-Hello-World repo.
+I found a Convolutional Neural Network (CNN) SqueezeNet Artificial Intelligence image classifier cats.vs.dogs.cpp, added explanatory comments to the existing code, and added a manual image classification game to it.  I placed the code in this fork of the https://github.com/ProfHariSeldon/CppND-Capstone-Image-Classifier repo.
 
-Folder CppND-Capstone-Hello-World is the root directory for the files mentioned below:
-```$ cd CppND-Capstone-Hello-World```
+Folder CppND-Capstone-Image-Classifier is the root directory for the files mentioned below:
+```$ cd CppND-Capstone-Image-Classifier```
 
 ### What I did
 
@@ -41,6 +41,7 @@ Folder CppND-Capstone-Hello-World is the root directory for the files mentioned 
 * git add . # manually add (basically fork) cats.vs.dogs.cpp and cat-dog images folder to project
 * git rn cat-dog images # rename cat-dog images folder to images folder
 * git mv # move .cpp files, .h files, squeezenet_v1.1.caffemodel, and squeezenet_v1.1.prototxt to src directory
+* rename project from CppND-Capstone-Hello-World to CppND-Capstone-Image-Classifier using GitHub settings
 
 ### Where to find my code:
 * Created ./CMakeLists.txt, ./.vscode/launch.json, and ./.vscode/settings.json
@@ -52,7 +53,7 @@ Folder CppND-Capstone-Hello-World is the root directory for the files mentioned 
 
 ## DETAILS OF PROJECT DEVELOPMENT
 
-This project was forked from the starter repo https://github.com/udacity/CppND-Capstone-Hello-World, however nothing in that starter repo was relevant to creating an image classifier so nothing of the starter repo remains.
+This project was forked from the starter repo https://github.com/ProfHariSeldon/CppND-Capstone-Image-Classifier, however nothing in that starter repo was relevant to creating an image classifier so nothing of the starter repo remains.
 
 These three project code files (./src/cats.vs.dogs.cpp, ./src/squeezenet_v1.1.caffemodel, ./src/squeezenet_v1.1.prototxt) came from this website: https://berak.github.io/smallfry/transfer.html.  I added comments and added a manual image classification game to cats.vs.dogs.cpp.  The dog and cat pictures came from https://github.com/yoggasek/Train_Data.  The other seven project code files I created (./CMakeLists.txt, ./.vscode/launch.json, ./.vscode/settings.json, ./src/game.cpp, ./src/game.h, ./src/game.cats.vs.dogs.cpp, and ./src/game.cats.vs.dogs.h).
 
@@ -81,21 +82,21 @@ There are two blocks of cat and dog pictures.  Those ending in 0-499 and those e
 
 ### FYI: How I got this repo's resources
 
-Skip to Build and Run Instructions if https://github.com/ProfHariSeldon/CppND-Capstone-Hello-World.git was cloned (step 1 of Build and Run Instructions below).
+Skip to Build and Run Instructions if https://github.com/ProfHariSeldon/CppND-Capstone-Image-Classifier.git was cloned (step 1 of Build and Run Instructions below).
 
 * Website that has the resources: https://berak.github.io/smallfry/transfer.html
 
-* ```$ cd /home/tlroot/Documents/C++/Capstone/CppND-Capstone-Hello-World```
+* ```$ cd /home/tlroot/Documents/C++/Capstone/CppND-Capstone-Image-Classifier```
 
 * Download this cpp file: https://gist.github.com/berak/70bcf5e8240c4af4426f9eff3f42121c#file-cats-vs-dogs-cpp
 * Download: https://raw.githubusercontent.com/DeepScale/SqueezeNet/b5c3f1a23713c8b3fd7b801d229f6b04c64374a5/SqueezeNet_v1.1/squeezenet_v1.1.caffemodel
 * Download: https://raw.githubusercontent.com/opencv/opencv_extra/master/testdata/dnn/squeezenet_v1.1.prototxt
 
-* cd OUTSIDE of /home/tlroot/Documents/C++/Capstone/CppND-Capstone-Hello-World
+* cd OUTSIDE of /home/tlroot/Documents/C++/Capstone/CppND-Capstone-Image-Classifier
 * ```$ git clone https://github.com/yoggasek/Train_Data.git```
 * Delete create_csv.py it is not needed.
 * Combine cat and dog folders into images folder.  The cats.vs.dogs.cpp Convolutional Neural Network will sort names lexically to separate the dog and cat pictures instead of having them in separate folders.
-* Move the images folder into /home/tlroot/Documents/C++/Capstone/CppND-Capstone-Hello-World
+* Move the images folder into /home/tlroot/Documents/C++/Capstone/CppND-Capstone-Image-Classifier
 
 * I created my own CMakeLists.txt, settings.json, and launch.json
 
@@ -167,7 +168,7 @@ https://www.tutorialspoint.com/unix_commands/ldconfig.htm
 
 ### Build and Run Instructions for this GitHub project
 
-1. git clone https://github.com/ProfHariSeldon/CppND-Capstone-Hello-World.git
+1. git clone https://github.com/ProfHariSeldon/CppND-Capstone-Image-Classifier.git
 2. Check that CMakeLists.txt is in top level GitHub project directory.
 3. Check that squeezenet_v1.1.caffemodel and squeezenet_v1.1.prototxt are in ./src directory.
 4. Check that launch.json and settings.json are in ./.vscode directory.
