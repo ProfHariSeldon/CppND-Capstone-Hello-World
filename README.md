@@ -4,7 +4,7 @@
 
 This is my Capstone independent project for the online course [Udacity C++ Nanodegree Program](https://www.udacity.com/course/c-plus-plus-nanodegree--nd213).  I chose to do an image classification project because my programming job may involve artificial intelligence such as OpenCV.
 
-I found a Convolutional Neural Network (CNN) SqueezeNet Artificial Intelligence image classifier cats.vs.dogs.cpp, added explanatory comments to the existing code, and added a manual image classification game to it.  I placed the code in this fork of the https://github.com/ProfHariSeldon/CppND-Capstone-Image-Classifier repo.
+I found a Convolutional Neural Network (CNN) SqueezeNet Artificial Intelligence image classifier cats.vs.dogs.cpp, added explanatory comments to the existing code, and added a manual image classification game to it.  I placed the code in this fork of the https://github.com/udacity/CppND-Capstone-Hello-World repo.
 
 Folder CppND-Capstone-Image-Classifier is the root directory for the files mentioned below:
 ```$ cd CppND-Capstone-Image-Classifier```
@@ -53,7 +53,7 @@ Folder CppND-Capstone-Image-Classifier is the root directory for the files menti
 
 ## DETAILS OF PROJECT DEVELOPMENT
 
-This project was forked from the starter repo https://github.com/ProfHariSeldon/CppND-Capstone-Image-Classifier, however nothing in that starter repo was relevant to creating an image classifier so nothing of the starter repo remains.
+This project was forked from the starter repo https://github.com/udacity/CppND-Capstone-Hello-World, however nothing in that starter repo was relevant to creating an image classifier so nothing of the starter repo remains.
 
 These three project code files (./src/cats.vs.dogs.cpp, ./src/squeezenet_v1.1.caffemodel, ./src/squeezenet_v1.1.prototxt) came from this website: https://berak.github.io/smallfry/transfer.html.  I added comments and added a manual image classification game to cats.vs.dogs.cpp.  The dog and cat pictures came from https://github.com/yoggasek/Train_Data.  The other seven project code files I created (./CMakeLists.txt, ./.vscode/launch.json, ./.vscode/settings.json, ./src/game.cpp, ./src/game.h, ./src/game.cats.vs.dogs.cpp, and ./src/game.cats.vs.dogs.h).
 
