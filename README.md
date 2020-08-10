@@ -81,7 +81,7 @@ There are two blocks of cat and dog pictures.  Those ending in 0-499 and those e
 
 ### FYI: How I got this repo's resources
 
-If https://github.com/ProfHariSeldon/CppND-Capstone-Hello-World.git was cloned (step 1 of Basic Build and Run Instructions below) do not do this section skip to Basic Build and Run Instructions:
+Skip to Build and Run Instructions if https://github.com/ProfHariSeldon/CppND-Capstone-Hello-World.git was cloned (step 1 of Build and Run Instructions below).
 
 * Website that has the resources: https://berak.github.io/smallfry/transfer.html
 
@@ -165,7 +165,7 @@ $ sudo ldconfig -v
 ```
 https://www.tutorialspoint.com/unix_commands/ldconfig.htm
 
-### Basic Build and Run Instructions for this GitHub project
+### Build and Run Instructions for this GitHub project
 
 1. git clone https://github.com/ProfHariSeldon/CppND-Capstone-Hello-World.git
 2. Check that CMakeLists.txt is in top level GitHub project directory.
