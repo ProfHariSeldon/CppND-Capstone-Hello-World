@@ -7,7 +7,9 @@ This is my Capstone independent project for the online course [Udacity C++ Nanod
 I found a Convolutional Neural Network (CNN) SqueezeNet Artificial Intelligence image classifier cats.vs.dogs.cpp, added explanatory comments to the existing code, and added a manual image classification game to it.  I placed the code in this fork of the https://github.com/udacity/CppND-Capstone-Hello-World repo.
 
 Folder CppND-Capstone-Image-Classifier-Game is the root directory for the files mentioned below:
-```$ cd CppND-Capstone-Image-Classifier-Game```
+```
+$ cd CppND-Capstone-Image-Classifier-Game
+```
 
 ### What I did
 
