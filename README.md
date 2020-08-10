@@ -6,8 +6,8 @@ This is my Capstone independent project for the online course [Udacity C++ Nanod
 
 I found a Convolutional Neural Network (CNN) SqueezeNet Artificial Intelligence image classifier cats.vs.dogs.cpp, added explanatory comments to the existing code, and added a manual image classification game to it.  I placed the code in this fork of the https://github.com/udacity/CppND-Capstone-Hello-World repo.
 
-Folder CppND-Capstone-Image-Classifier is the root directory for the files mentioned below:
-```$ cd CppND-Capstone-Image-Classifier```
+Folder CppND-Capstone-Image-Classifier-Game is the root directory for the files mentioned below:
+```$ cd CppND-Capstone-Image-Classifier-Game```
 
 ### What I did
 
@@ -41,7 +41,7 @@ Folder CppND-Capstone-Image-Classifier is the root directory for the files menti
 * git add . # manually add (basically fork) cats.vs.dogs.cpp and cat-dog images folder to project
 * git rn cat-dog images # rename cat-dog images folder to images folder
 * git mv # move .cpp files, .h files, squeezenet_v1.1.caffemodel, and squeezenet_v1.1.prototxt to src directory
-* rename project from CppND-Capstone-Hello-World to CppND-Capstone-Image-Classifier using GitHub settings
+* rename project from CppND-Capstone-Hello-World to CppND-Capstone-Image-Classifier-Game using GitHub settings
 
 ### Where to find my code:
 * Created ./CMakeLists.txt, ./.vscode/launch.json, and ./.vscode/settings.json
@@ -82,21 +82,21 @@ There are two blocks of cat and dog pictures.  Those ending in 0-499 and those e
 
 ### FYI: How I got this repo's resources
 
-Skip to Build and Run Instructions if https://github.com/ProfHariSeldon/CppND-Capstone-Image-Classifier.git was cloned (step 1 of Build and Run Instructions below).
+Skip to Build and Run Instructions if https://github.com/ProfHariSeldon/CppND-Capstone-Image-Classifier-Game.git was cloned (step 1 of Build and Run Instructions below).
 
 * Website that has the resources: https://berak.github.io/smallfry/transfer.html
 
-* ```$ cd /home/tlroot/Documents/C++/Capstone/CppND-Capstone-Image-Classifier```
+* ```$ cd /home/tlroot/Documents/C++/Capstone/CppND-Capstone-Image-Classifier-Game```
 
 * Download this cpp file: https://gist.github.com/berak/70bcf5e8240c4af4426f9eff3f42121c#file-cats-vs-dogs-cpp
 * Download: https://raw.githubusercontent.com/DeepScale/SqueezeNet/b5c3f1a23713c8b3fd7b801d229f6b04c64374a5/SqueezeNet_v1.1/squeezenet_v1.1.caffemodel
 * Download: https://raw.githubusercontent.com/opencv/opencv_extra/master/testdata/dnn/squeezenet_v1.1.prototxt
 
-* cd OUTSIDE of /home/tlroot/Documents/C++/Capstone/CppND-Capstone-Image-Classifier
+* cd OUTSIDE of /home/tlroot/Documents/C++/Capstone/CppND-Capstone-Image-Classifier-Game
 * ```$ git clone https://github.com/yoggasek/Train_Data.git```
 * Delete create_csv.py it is not needed.
 * Combine cat and dog folders into images folder.  The cats.vs.dogs.cpp Convolutional Neural Network will sort names lexically to separate the dog and cat pictures instead of having them in separate folders.
-* Move the images folder into /home/tlroot/Documents/C++/Capstone/CppND-Capstone-Image-Classifier
+* Move the images folder into /home/tlroot/Documents/C++/Capstone/CppND-Capstone-Image-Classifier-Game
 
 * I created my own CMakeLists.txt, settings.json, and launch.json
 
@@ -168,7 +168,7 @@ https://www.tutorialspoint.com/unix_commands/ldconfig.htm
 
 ### Build and Run Instructions for this GitHub project
 
-1. git clone https://github.com/ProfHariSeldon/CppND-Capstone-Image-Classifier.git
+1. git clone https://github.com/ProfHariSeldon/CppND-Capstone-Image-Classifier-Game.git
 2. Check that CMakeLists.txt is in top level GitHub project directory.
 3. Check that squeezenet_v1.1.caffemodel and squeezenet_v1.1.prototxt are in ./src directory.
 4. Check that launch.json and settings.json are in ./.vscode directory.
