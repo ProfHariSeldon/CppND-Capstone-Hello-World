@@ -142,6 +142,7 @@ classifier: /home/tlroot/installation/OpenCV-master/lib/libopencv_hfs.so.4.4.0
 classifier: /home/tlroot/installation/OpenCV-master/lib/libopencv_img_hash.so.4.4.0
 classifier: /home/tlroot/installation/OpenCV-master/lib/libopencv_intensity_transform.so.4.4.0
 classifier: /home/tlroot/installation/OpenCV-master/lib/libopencv_line_descriptor.so.4.4.0
+classifier: /home/tlroot/installation/OpenCV-master/lib/libopencv_mcc.so.4.4.0
 classifier: /home/tlroot/installation/OpenCV-master/lib/libopencv_optflow.so.4.4.0
 classifier: /home/tlroot/installation/OpenCV-master/lib/libopencv_phase_unwrapping.so.4.4.0
 classifier: /home/tlroot/installation/OpenCV-master/lib/libopencv_plot.so.4.4.0

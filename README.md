@@ -178,7 +178,7 @@ https://www.tutorialspoint.com/unix_commands/ldconfig.htm
 6. Install Open CV 4 (see above section)
 7. Enter build directory: `cd build`
 8. Compile: `cmake .. && make`
-9. Run it: `./classifier`.
+9. Run it: `./classifier`
 10. Expect the following output:
 ```
 AI DOG CAT IMAGE CLASSIFICATION (SQUEEZENET CNN):
