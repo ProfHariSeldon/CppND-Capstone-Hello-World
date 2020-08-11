@@ -19,6 +19,7 @@ $ cd CppND-Capstone-Image-Classifier-Game
 * subclass CatsVsDogs
 * constructor CatsVsDogs
 * public methods in ./src/game.h used in ./src/game.cats.vs.dogs.cpp
+* public method Run() in ./src/game.cats.vs.dogs.h used in ./src/cats.vs.dogs.cpp
 * public variable _bGameRunning in game.h shared between ./src/game.cpp and ./src/game.cats.vs.dogs.cpp
 * private variables in ./src/game.h
 * private variables in ./src/game.cats.vs.dogs.h
@@ -93,6 +94,7 @@ Skip to Build and Run Instructions if https://github.com/ProfHariSeldon/CppND-Ca
 * Download this cpp file: https://gist.github.com/berak/70bcf5e8240c4af4426f9eff3f42121c#file-cats-vs-dogs-cpp
 * Download: https://raw.githubusercontent.com/DeepScale/SqueezeNet/b5c3f1a23713c8b3fd7b801d229f6b04c64374a5/SqueezeNet_v1.1/squeezenet_v1.1.caffemodel
 * Download: https://raw.githubusercontent.com/opencv/opencv_extra/master/testdata/dnn/squeezenet_v1.1.prototxt
+* Move those 3 files into an src directory
 
 * cd OUTSIDE of /home/tlroot/Documents/C++/Capstone/CppND-Capstone-Image-Classifier-Game
 * ```$ git clone https://github.com/yoggasek/Train_Data.git```
