@@ -258,7 +258,7 @@ Accuracy 0.6
   * ./src/game.h contains public variable bool _bGameRunning is shared between ./src/game.cpp and ./src/game.cats.vs.dogs.cpp
   * ./src/game.h and ./src/game.cats.vs.dogs.h contain public methods and private variables
 * **YES:** All class members that are set to argument values are initialized through member initialization lists.
-  * All class variables that need to be set to a value that is not null (true, 0, 'c', "cat", 'd', or "dog") are declared in the ./src/game.h or ./src/game.cats.vs.dogs.h and defined in the constructor in ./src/game.cpp or ./src/game.cats.vs.dogs.cpp
+  * All class variables that need to be set to a value that is not null (true, 0, 'c', "cat", 'd', or "dog") are declared in the ./src/game.h or ./src/game.cats.vs.dogs.h and defined in the constructor in ./src/game.cpp or the constructor in ./src/game.cats.vs.dogs.cpp
 * **YES:** All class member functions document their effects, either through function names, comments, or formal documentation. Member functions do not change program state in undocumented ways.
   * All class member functions have clear function names and comments.
 * **YES:** Appropriate data and functions are grouped into classes. Member data that is subject to an invariant is hidden from the user. State is accessed via member functions.
