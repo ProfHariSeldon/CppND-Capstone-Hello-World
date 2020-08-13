@@ -237,63 +237,63 @@ Accuracy 0.6
 
 ### YES: Compiling and Testing (All Rubric Points REQUIRED)
 * **YES:** The project code must compile and run without errors. 
- * Used `make` and `cmake` with `cmake` settings defined in ./CMakeLists.txt.
- * ./CMakeLists.txt points to both Open CV 4 directories /home/tlroot/installation/OpenCV-master/include/opencv4 and /home/tlroot/installation/OpenCV-master/lib so that `cmake` can compile correctly the Open CV 4 files that `#include` points to and the dependencies of those files.
- * opencv.conf created in /etc/ld.so.conf.d/ (see "Installation Solution" section) so that `$ sudo ldconfig` adds Open CV 4 to the path so that compiling works.
- * ./.vscode/launch.json points to executable ./build/classifier/
- * ./.vscode/settings.json includePath points to /home/tlroot/installation/OpenCV-master/include/opencv4 so that Visual Studio Code can find `#include` Open CV 4 files.
+  * Used `make` and `cmake` with `cmake` settings defined in ./CMakeLists.txt.
+  * ./CMakeLists.txt points to both Open CV 4 directories /home/tlroot/installation/OpenCV-master/include/opencv4 and /home/tlroot/installation/OpenCV-master/lib so that `cmake` can compile correctly the Open CV 4 files that `#include` points to and the dependencies of those files.
+  * opencv.conf created in /etc/ld.so.conf.d/ (see "Installation Solution" section) so that `$ sudo ldconfig` adds Open CV 4 to the path so that compiling works.
+  * ./.vscode/launch.json points to executable ./build/classifier/
+  * ./.vscode/settings.json includePath points to /home/tlroot/installation/OpenCV-master/include/opencv4 so that Visual Studio Code can find `#include` Open CV 4 files.
 
 ### YES: Loops, Functions, I/O
 * **YES:** A variety of control structures are used in the project.  The project code is clearly organized into functions.
- * Functions I created are declared in ./src/game.h and ./src/game.cats.vs.dogs.h and defined in ./src/game.cpp and ./src/game.cats.vs.dogs.cpp.
+  * Functions I created are declared in ./src/game.h and ./src/game.cats.vs.dogs.h and defined in ./src/game.cpp and ./src/game.cats.vs.dogs.cpp.
 * **YES:** The project reads data from an external file or writes data to a file as part of the necessary operation of the program.
- * My Game::LoadImage method (in ./src/game.cpp) uses OpenCV 4's namedWindow method to pop up a window, uses OpenCV 4's imshow method to pop up an image, and uses OpenCV 4's Mat class to select the image to pop up.  The image to pop up is randomized by my Game::CoinFlip and my Game::RandomImage methods (in ./src/game.cpp).
+  * My Game::LoadImage method (in ./src/game.cpp) uses OpenCV 4's namedWindow method to pop up a window, uses OpenCV 4's imshow method to pop up an image, and uses OpenCV 4's Mat class to select the image to pop up.  The image to pop up is randomized by my Game::CoinFlip and my Game::RandomImage methods (in ./src/game.cpp).
 * **YES:** The project accepts input from a user as part of the necessary operation of the program.
- * My Game::ClassifyImage method (in ./src/game.cpp) uses OpenCV 4's TickMeter class to measure the number of milliseconds it takes for the user to press "c" to classify the image as a cat or "d" to classify the image as a dog and also records whether that classification was correct or not.
+  * My Game::ClassifyImage method (in ./src/game.cpp) uses OpenCV 4's TickMeter class to measure the number of milliseconds it takes for the user to press "c" to classify the image as a cat or "d" to classify the image as a dog and also records whether that classification was correct or not.
 
 ### Object Oriented Programming
 * **YES:** The project code is organized into classes with class attributes to hold the data, and class methods to perform tasks.  All class data members are explicitly specified as public, protected, or private.
- * ./src/game.cpp contains public methods that are generalized to any manual image1 vs image2 classification game
- * ./src/game.cats.vs.dogs.cpp contains the CatsVsDogs::Run() public method that uses the ./src/game.cpp methods and runs a cat vs dog manual image classification game.
- * ./src/game.h contains public variable bool _bGameRunning is shared between ./src/game.cpp and ./src/game.cats.vs.dogs.cpp
- * ./src/game.h and ./src/game.cats.vs.dogs.h contain public methods and private variables
+  * ./src/game.cpp contains public methods that are generalized to any manual image1 vs image2 classification game
+  * ./src/game.cats.vs.dogs.cpp contains the CatsVsDogs::Run() public method that uses the ./src/game.cpp methods and runs a cat vs dog manual image classification game.
+  * ./src/game.h contains public variable bool _bGameRunning is shared between ./src/game.cpp and ./src/game.cats.vs.dogs.cpp
+  * ./src/game.h and ./src/game.cats.vs.dogs.h contain public methods and private variables
 * **YES:** All class members that are set to argument values are initialized through member initialization lists.
- * All class variables that need to be set to a value that is not null (true, 0, 'c', "cat", 'd', or "dog") are declared in the ./src/game.h or ./src/game.cats.vs.dogs.h and defined in the constructor in ./src/game.cpp or ./src/game.cats.vs.dogs.cpp
+  * All class variables that need to be set to a value that is not null (true, 0, 'c', "cat", 'd', or "dog") are declared in the ./src/game.h or ./src/game.cats.vs.dogs.h and defined in the constructor in ./src/game.cpp or ./src/game.cats.vs.dogs.cpp
 * **YES:** All class member functions document their effects, either through function names, comments, or formal documentation. Member functions do not change program state in undocumented ways.
- * All class member functions have clear function names and comments.
+  * All class member functions have clear function names and comments.
 * **YES:** Appropriate data and functions are grouped into classes. Member data that is subject to an invariant is hidden from the user. State is accessed via member functions.
- * Class CatsVsDogs (./src/game.cats.vs.dogs.cpp and ./src/game.cats.vs.dogs.h) is a subclass of Game (./src/game.cpp and ./src/game.h)
- * private variables in Class Game (./src/game.cpp and ./src/game.h) are hidden from (not inherited by) Class CatsVsDogs (./src/game.cats.vs.dogs.cpp and ./src/game.cats.vs.dogs.h).
- * ./src/game.cats.vs.dogs.cpp uses the functions (they are all public) defined in ./src/game.cpp and public variable bool _bGameRunning in ./src/game.h is shared between ./src/game.cpp and ./src/game.cats.vs.dogs.cpp
+  * Class CatsVsDogs (./src/game.cats.vs.dogs.cpp and ./src/game.cats.vs.dogs.h) is a subclass of Game (./src/game.cpp and ./src/game.h)
+  * private variables in Class Game (./src/game.cpp and ./src/game.h) are hidden from (not inherited by) Class CatsVsDogs (./src/game.cats.vs.dogs.cpp and ./src/game.cats.vs.dogs.h).
+  * ./src/game.cats.vs.dogs.cpp uses the functions (they are all public) defined in ./src/game.cpp and public variable bool _bGameRunning in ./src/game.h is shared between ./src/game.cpp and ./src/game.cats.vs.dogs.cpp
 * **PARTIAL:** Inheritance hierarchies are logical. Composition is used instead of inheritance when appropriate. Abstract classes are composed of pure virtual functions. Override functions are specified.
- * Inheritance hierarchies are logical.  Code is not complicated enough to require composition, abstract classes, virtual functions, or override functions.
+  * Inheritance hierarchies are logical.  Code is not complicated enough to require composition, abstract classes, virtual functions, or override functions.
 * **NO:** One function is overloaded with different signatures for the same function name.
- * Code is not complicated enough to require this.
+  * Code is not complicated enough to require this.
 * **NO:** One member function in an inherited class overrides a virtual base class member function.
- * Code is not complicated enough to require this.
+  * Code is not complicated enough to require this.
 * **NO:** One function is declared with a template that allows it to accept a generic parameter.
- * Code is not complicated enough to require this.
+  * Code is not complicated enough to require this.
 
 ### Memory Management
 * **NO:** At least two variables are defined as references, or two functions use pass-by-reference in the project code.
- * Code is not complicated enough to require this.
+  * Code is not complicated enough to require this.
 * **NO:** At least one class that uses unmanaged dynamically allocated memory, along with any class that otherwise needs to modify state upon the termination of an object, uses a destructor.
- * Code is not complicated enough to require this.
+  * Code is not complicated enough to require this.
 * **PARTIAL (BY DEFAULT):** The project follows the Resource Acquisition Is Initialization pattern where appropriate, by allocating objects at compile-time, initializing objects when they are declared, and utilizing scope to ensure their automatic destruction.
- * My code is not complicated enough to require RAII but my variables are set up so when they go out of scope they are destroyed or garbage collected by default.
+  * My code is not complicated enough to require RAII but my variables are set up so when they go out of scope they are destroyed or garbage collected by default.
 * **NO:** For all classes, if any one of the copy constructor, copy assignment operator, move constructor, move assignment operator, and destructor are defined, then all of these functions are defined.
- * Code is not complicated enough to require Rule of Five.
+  * Code is not complicated enough to require Rule of Five.
 * **NO:** For classes with move constructors, the project returns objects of that class by value, and relies on the move constructor, instead of copying the object.
- * Code is not complicated enough to require Rule of Five.
+  * Code is not complicated enough to require Rule of Five.
 * **NO:** The project uses at least one smart pointer: unique_ptr, shared_ptr, or weak_ptr. The project does not use raw pointers.
- * Code is not complicated enough to require this.
+  * Code is not complicated enough to require this.
 
 ### NO: Concurrency
 * **NO:** The project uses multiple threads in the execution.
- * Code is not multi-thread.
+  * Code is not multi-thread.
 * **NO:** A promise and future is used to pass data from a worker thread to a parent thread in the project code.
- * Code is not multi-thread.
+  * Code is not multi-thread.
 * **NO:** A mutex or lock (e.g. std::lock_guard or `std::unique_lock) is used to protect data that is shared across multiple threads in the project code.
- * Code is not multi-thread.
+  * Code is not multi-thread.
 * **NO:** A std::condition_variable is used in the project code to synchronize thread execution.
- * Code is not multi-thread.
+  * Code is not multi-thread.
