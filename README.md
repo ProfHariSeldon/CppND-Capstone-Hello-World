@@ -14,13 +14,13 @@ $ cd CppND-Capstone-Image-Classifier-Game
 ### What I did
 
 #### C++ programming
-* class Game
-* constructor Game
-* subclass CatsVsDogs
-* constructor CatsVsDogs
+* class Game (game.h line 12)
+* constructor Game (game.cpp line 24)
+* subclass CatsVsDogs (game.cats.vs.dogs.h line 10)
+* constructor CatsVsDogs (game.cats.vs.dogs.cpp line 10)
 * public methods in ./src/game.h used in ./src/game.cats.vs.dogs.cpp
-* public method Run() in ./src/game.cats.vs.dogs.h used in ./src/cats.vs.dogs.cpp
-* public variable bool _bGameRunning in ./src/game.h is shared between ./src/game.cpp and ./src/game.cats.vs.dogs.cpp
+* public method 18:Run() in ./src/game.cats.vs.dogs.h used in ./src/cats.vs.dogs.cpp
+* public variable 17:bool _bGameRunning in ./src/game.h is shared between ./src/game.cpp and ./src/game.cats.vs.dogs.cpp
 * private variables in ./src/game.h
 * private variables in ./src/game.cats.vs.dogs.h
 
@@ -235,38 +235,43 @@ Accuracy 0.6
 
 ## RUBRIC POINTS
 
+### YES: README (All Rubric Points REQUIRED)
+* **YES:** The README is included with the project and has instructions for building/running the project.  If any additional libraries are needed to run the project, these are indicated with cross-platform installation instructions.  You can submit your writeup as markdown or pdf.
+* **YES:** The README describes the project you have built.  The README also indicates the file and class structure, along with the expected behavior or output of the program.
+* **YES:** The README indicates which rubric points are addressed. The README also indicates where in the code (i.e. files and line numbers) that the rubric points are addressed.
+
 ### YES: Compiling and Testing (All Rubric Points REQUIRED)
 * **YES:** The project code must compile and run without errors. 
   * Used `make` and `cmake` with `cmake` settings defined in ./CMakeLists.txt.
-  * ./CMakeLists.txt points to both Open CV 4 directories /home/tlroot/installation/OpenCV-master/include/opencv4 and /home/tlroot/installation/OpenCV-master/lib so that `cmake` can compile correctly the Open CV 4 files that `#include` points to and the dependencies of those files.
+  * ./CMakeLists.txt points to Open CV 4 directories 8:`SET(OpenCV_DIR /home/tlroot/installation/OpenCV-master/include/opencv4/)`, 11:`find_package( OpenCV REQUIRED PATHS "/home/tlroot/installation/OpenCV-master/")`, and /home/tlroot/installation/OpenCV-master/lib (20:`target_link_libraries( classifier ${OpenCV_LIBS} )`) so that `cmake` can compile correctly the Open CV 4 files that `#include` points to and the dependencies of those files.
   * opencv.conf created in /etc/ld.so.conf.d/ (see "Installation Solution" section) so that `$ sudo ldconfig` adds Open CV 4 to the path so that compiling works.
-  * ./.vscode/launch.json points to executable ./build/classifier
-  * ./.vscode/settings.json includePath points to /home/tlroot/installation/OpenCV-master/include/opencv4 so that Visual Studio Code can find `#include` Open CV 4 files.
+  * ./.vscode/launch.json points to executable 11:`"program": "${workspaceFolder}/build/classifier",`
+  * ./.vscode/settings.json 64:`"C_Cpp.default.includePath": ["/home/tlroot/installation/OpenCV-master/include/opencv4/"]` so that Visual Studio Code can find `#include` Open CV 4 files.
 
 ### YES: Loops, Functions, I/O
 * **YES:** A variety of control structures are used in the project.  The project code is clearly organized into functions.
   * Functions I created are declared in ./src/game.h and ./src/game.cats.vs.dogs.h and defined in ./src/game.cpp and ./src/game.cats.vs.dogs.cpp.
 * **YES:** The project reads data from an external file or writes data to a file as part of the necessary operation of the program.
-  * My Game::LoadImage method (in ./src/game.cpp) uses OpenCV 4's namedWindow method to pop up a window, uses OpenCV 4's imshow method to pop up an image, and uses OpenCV 4's Mat class to select the image to pop up.  The image to pop up is randomized by my Game::CoinFlip and my Game::RandomImage methods (in ./src/game.cpp).
+  * My 76:Game::LoadImage method (in ./src/game.cpp) uses OpenCV 4's 94:namedWindow method to pop up a window, uses OpenCV 4's 96:imshow method to pop up an image, and uses OpenCV 4's Mat class to select the image to pop up.  The image to pop up is randomized by my 34:Game::CoinFlip and my 56:Game::RandomImage methods (in ./src/game.cpp).
 * **YES:** The project accepts input from a user as part of the necessary operation of the program.
-  * My Game::ClassifyImage method (in ./src/game.cpp) uses OpenCV 4's waitKey method to wait for and record key presses and OpenCV 4's TickMeter class to measure the number of milliseconds it takes for the user to press "c" to classify the image as a cat or "d" to classify the image as a dog.  Game::ClassifyImage also records whether that classification was correct or not.
+  * My 102:Game::ClassifyImage method (in ./src/game.cpp) uses OpenCV 4's 113:waitKey method to wait for and record key presses and OpenCV 4's TickMeter class (108:TickMeter tm;) to measure the number of milliseconds it takes for the user to press "c" to classify the image as a cat or "d" to classify the image as a dog.  Game::ClassifyImage also records whether that classification was correct or not (133:_vsCorrectImageID, 138:_vsWrongImageID, 154:_vsWrongImageID, and 159:_vsCorrectImageID).
 
 ### Object Oriented Programming
 * **YES:** The project code is organized into classes with class attributes to hold the data, and class methods to perform tasks.  All class data members are explicitly specified as public, protected, or private.
   * ./src/game.cpp contains public methods that are generalized to any manual image1 vs image2 classification game
-  * ./src/game.cats.vs.dogs.cpp contains the CatsVsDogs::Run() public method that uses the ./src/game.cpp methods and runs a cat vs dog manual image classification game.
-  * ./src/game.h contains public variable bool _bGameRunning is shared between ./src/game.cpp and ./src/game.cats.vs.dogs.cpp
+  * ./src/game.cats.vs.dogs.cpp contains the 18:CatsVsDogs::Run() public method that uses the ./src/game.cpp methods and runs a cat vs dog manual image classification game.
+  * ./src/game.h contains public variable 17:bool _bGameRunning is shared between ./src/game.cpp and ./src/game.cats.vs.dogs.cpp
   * ./src/game.h and ./src/game.cats.vs.dogs.h contain public methods and private variables
 * **YES:** All class members that are set to argument values are initialized through member initialization lists.
-  * All class variables that need to be set to a value that is not null (true, 0, 'c', "cat", 'd', or "dog") are declared in the ./src/game.h or ./src/game.cats.vs.dogs.h and defined in the constructor in ./src/game.cpp or the constructor in ./src/game.cats.vs.dogs.cpp
+  * All class variables that need to be set to a value that is not null (true, 0, 'c', "cat", 'd', or "dog") are declared in the ./src/game.h or ./src/game.cats.vs.dogs.h and defined in the 24:Game::Game() constructor in ./src/game.cpp or the 10:CatsVsDogs::CatsVsDogs() constructor in ./src/game.cats.vs.dogs.cpp
 * **YES:** All class member functions document their effects, either through function names, comments, or formal documentation. Member functions do not change program state in undocumented ways.
   * All class member functions have clear function names and comments.
 * **YES:** Appropriate data and functions are grouped into classes. Member data that is subject to an invariant is hidden from the user. State is accessed via member functions.
-  * Class CatsVsDogs (./src/game.cats.vs.dogs.cpp and ./src/game.cats.vs.dogs.h) is a subclass of Game (./src/game.cpp and ./src/game.h)
-  * private variables in Class Game (./src/game.cpp and ./src/game.h) are hidden from (not inherited by) Class CatsVsDogs (./src/game.cats.vs.dogs.cpp and ./src/game.cats.vs.dogs.h).
-  * ./src/game.cats.vs.dogs.cpp uses the functions (they are all public) defined in ./src/game.cpp and public variable bool _bGameRunning in ./src/game.h is shared between ./src/game.cpp and ./src/game.cats.vs.dogs.cpp
+  * Class CatsVsDogs (./src/game.cats.vs.dogs.h line 10) is a subclass of Game (./src/game.h line 12)
+  * private variables in class Game (./src/game.cpp and ./src/game.h) are hidden from (not inherited by) class CatsVsDogs (./src/game.cats.vs.dogs.cpp and ./src/game.cats.vs.dogs.h).
+  * ./src/game.cats.vs.dogs.cpp uses the functions (they are all public) defined in ./src/game.cpp and public variable 17:bool _bGameRunning in ./src/game.h is shared between ./src/game.cpp and ./src/game.cats.vs.dogs.cpp
 * **PARTIAL:** Inheritance hierarchies are logical. Composition is used instead of inheritance when appropriate. Abstract classes are composed of pure virtual functions. Override functions are specified.
-  * Inheritance hierarchies for Class Game (./src/game.cpp and ./src/game.h) and Class CatsVsDogs (./src/game.cats.vs.dogs.cpp and ./src/game.cats.vs.dogs.h) are logical.  Code is not complicated enough to require composition, abstract classes, virtual functions, or override functions.
+  * Inheritance hierarchies for class Game (./src/game.cpp and ./src/game.h) and class CatsVsDogs (./src/game.cats.vs.dogs.cpp and ./src/game.cats.vs.dogs.h) are logical.  Code is not complicated enough to require composition, abstract classes, virtual functions, or override functions.
 * **NO:** One function is overloaded with different signatures for the same function name.
   * Code is not complicated enough to require this.
 * **NO:** One member function in an inherited class overrides a virtual base class member function.
