@@ -240,7 +240,7 @@ Accuracy 0.6
   * Used `make` and `cmake` with `cmake` settings defined in ./CMakeLists.txt.
   * ./CMakeLists.txt points to both Open CV 4 directories /home/tlroot/installation/OpenCV-master/include/opencv4 and /home/tlroot/installation/OpenCV-master/lib so that `cmake` can compile correctly the Open CV 4 files that `#include` points to and the dependencies of those files.
   * opencv.conf created in /etc/ld.so.conf.d/ (see "Installation Solution" section) so that `$ sudo ldconfig` adds Open CV 4 to the path so that compiling works.
-  * ./.vscode/launch.json points to executable ./build/classifier/
+  * ./.vscode/launch.json points to executable ./build/classifier
   * ./.vscode/settings.json includePath points to /home/tlroot/installation/OpenCV-master/include/opencv4 so that Visual Studio Code can find `#include` Open CV 4 files.
 
 ### YES: Loops, Functions, I/O
@@ -249,7 +249,7 @@ Accuracy 0.6
 * **YES:** The project reads data from an external file or writes data to a file as part of the necessary operation of the program.
   * My Game::LoadImage method (in ./src/game.cpp) uses OpenCV 4's namedWindow method to pop up a window, uses OpenCV 4's imshow method to pop up an image, and uses OpenCV 4's Mat class to select the image to pop up.  The image to pop up is randomized by my Game::CoinFlip and my Game::RandomImage methods (in ./src/game.cpp).
 * **YES:** The project accepts input from a user as part of the necessary operation of the program.
-  * My Game::ClassifyImage method (in ./src/game.cpp) uses OpenCV 4's TickMeter class to measure the number of milliseconds it takes for the user to press "c" to classify the image as a cat or "d" to classify the image as a dog and also records whether that classification was correct or not.
+  * My Game::ClassifyImage method (in ./src/game.cpp) uses OpenCV 4's waitKey method to wait for and record key presses and OpenCV 4's TickMeter class to measure the number of milliseconds it takes for the user to press "c" to classify the image as a cat or "d" to classify the image as a dog.  Game::ClassifyImage also records whether that classification was correct or not.
 
 ### Object Oriented Programming
 * **YES:** The project code is organized into classes with class attributes to hold the data, and class methods to perform tasks.  All class data members are explicitly specified as public, protected, or private.
@@ -266,7 +266,7 @@ Accuracy 0.6
   * private variables in Class Game (./src/game.cpp and ./src/game.h) are hidden from (not inherited by) Class CatsVsDogs (./src/game.cats.vs.dogs.cpp and ./src/game.cats.vs.dogs.h).
   * ./src/game.cats.vs.dogs.cpp uses the functions (they are all public) defined in ./src/game.cpp and public variable bool _bGameRunning in ./src/game.h is shared between ./src/game.cpp and ./src/game.cats.vs.dogs.cpp
 * **PARTIAL:** Inheritance hierarchies are logical. Composition is used instead of inheritance when appropriate. Abstract classes are composed of pure virtual functions. Override functions are specified.
-  * Inheritance hierarchies are logical.  Code is not complicated enough to require composition, abstract classes, virtual functions, or override functions.
+  * Inheritance hierarchies for Class Game (./src/game.cpp and ./src/game.h) and Class CatsVsDogs (./src/game.cats.vs.dogs.cpp and ./src/game.cats.vs.dogs.h) are logical.  Code is not complicated enough to require composition, abstract classes, virtual functions, or override functions.
 * **NO:** One function is overloaded with different signatures for the same function name.
   * Code is not complicated enough to require this.
 * **NO:** One member function in an inherited class overrides a virtual base class member function.
