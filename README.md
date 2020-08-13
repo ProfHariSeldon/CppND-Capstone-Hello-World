@@ -14,12 +14,13 @@ $ cd CppND-Capstone-Image-Classifier-Game
 ### What I did
 
 #### C++ programming
+Note: "integer:" means that was found on line "integer" of the file, e.g. 18:CatsVsDogs::Run() means the CatsVsDogs::Run() method was found on line 18
 * class Game (game.h line 12)
 * constructor Game (game.cpp line 24)
 * subclass CatsVsDogs (game.cats.vs.dogs.h line 10)
 * constructor CatsVsDogs (game.cats.vs.dogs.cpp line 10)
 * public methods in ./src/game.h used in ./src/game.cats.vs.dogs.cpp
-* public method 18:Run() in ./src/game.cats.vs.dogs.h used in ./src/cats.vs.dogs.cpp
+* public method 18:CatsVsDogs::Run() in ./src/game.cats.vs.dogs.h used in ./src/cats.vs.dogs.cpp
 * public variable 17:bool _bGameRunning in ./src/game.h is shared between ./src/game.cpp and ./src/game.cats.vs.dogs.cpp
 * private variables in ./src/game.h
 * private variables in ./src/game.cats.vs.dogs.h
@@ -234,6 +235,7 @@ Accuracy 0.6
 ```
 
 ## RUBRIC POINTS
+Note: "integer:" means that was found on line "integer" of the file, e.g. 76:Game::LoadImage means the Game::LoadImage method was found on line 76
 
 ### YES: README (All Rubric Points REQUIRED)
 * **YES:** The README is included with the project and has instructions for building/running the project.  If any additional libraries are needed to run the project, these are indicated with cross-platform installation instructions.  You can submit your writeup as markdown or pdf.
@@ -260,14 +262,14 @@ Accuracy 0.6
 * **YES:** The project code is organized into classes with class attributes to hold the data, and class methods to perform tasks.  All class data members are explicitly specified as public, protected, or private.
   * ./src/game.cpp contains public methods that are generalized to any manual image1 vs image2 classification game
   * ./src/game.cats.vs.dogs.cpp contains the 18:CatsVsDogs::Run() public method that uses the ./src/game.cpp methods and runs a cat vs dog manual image classification game.
-  * ./src/game.h contains public variable 17:bool _bGameRunning is shared between ./src/game.cpp and ./src/game.cats.vs.dogs.cpp
+  * ./src/game.h contains public variable 17:bool _bGameRunning shared between ./src/game.cpp and ./src/game.cats.vs.dogs.cpp
   * ./src/game.h and ./src/game.cats.vs.dogs.h contain public methods and private variables
 * **YES:** All class members that are set to argument values are initialized through member initialization lists.
   * All class variables that need to be set to a value that is not null (true, 0, 'c', "cat", 'd', or "dog") are declared in the ./src/game.h or ./src/game.cats.vs.dogs.h and defined in the 24:Game::Game() constructor in ./src/game.cpp or the 10:CatsVsDogs::CatsVsDogs() constructor in ./src/game.cats.vs.dogs.cpp
 * **YES:** All class member functions document their effects, either through function names, comments, or formal documentation. Member functions do not change program state in undocumented ways.
   * All class member functions have clear function names and comments.
 * **YES:** Appropriate data and functions are grouped into classes. Member data that is subject to an invariant is hidden from the user. State is accessed via member functions.
-  * Class CatsVsDogs (./src/game.cats.vs.dogs.h line 10) is a subclass of Game (./src/game.h line 12)
+  * 10:class CatsVsDogs (./src/game.cats.vs.dogs.h) is a subclass of 12:class Game (./src/game.h)
   * private variables in class Game (./src/game.cpp and ./src/game.h) are hidden from (not inherited by) class CatsVsDogs (./src/game.cats.vs.dogs.cpp and ./src/game.cats.vs.dogs.h).
   * ./src/game.cats.vs.dogs.cpp uses the functions (they are all public) defined in ./src/game.cpp and public variable 17:bool _bGameRunning in ./src/game.h is shared between ./src/game.cpp and ./src/game.cats.vs.dogs.cpp
 * **PARTIAL:** Inheritance hierarchies are logical. Composition is used instead of inheritance when appropriate. Abstract classes are composed of pure virtual functions. Override functions are specified.
